@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, Phone, MessageCircle, Send } from "lucide-react";
+import { Mail, Phone, MessageCircle, Send, Sparkles, Heart, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -51,15 +51,24 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-websitemaatje-light to-blue-50" data-testid="contact-section">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 relative overflow-hidden" data-testid="contact-section">
+      {/* Background decorations */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-websitemaatje-primary opacity-5 rounded-full floating-animation"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-websitemaatje-accent opacity-5 rounded-full floating-animation" style={{animationDelay: '1s'}}></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
+            <div className="inline-flex items-center px-4 py-2 bg-websitemaatje-gradient rounded-full text-white font-semibold mb-6">
+              <Heart className="w-4 h-4 mr-2" />
+              Gratis kennismaking, geen verplichtingen
+            </div>
             <h2 className="text-4xl font-bold text-websitemaatje-dark mb-4" data-testid="text-contact-title">
-              Klaar om te beginnen?
+              <span className="text-gradient">Klaar om te beginnen?</span>
             </h2>
-            <p className="text-xl text-gray-600" data-testid="text-contact-subtitle">
-              Stuur ons een berichtje en we nemen snel contact met je op voor een vrijblijvend gesprek.
+            <p className="text-xl text-gray-600 leading-relaxed" data-testid="text-contact-subtitle">
+              Stuur ons een berichtje en we nemen snel contact met je op voor een vrijblijvend gesprek. 
+              <span className="font-semibold text-websitemaatje-primary"> Binnen 24 uur hoor je van ons!</span>
             </p>
           </div>
           
