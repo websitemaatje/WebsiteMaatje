@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebsiteMaatje - Jouw website, gemaakt door je maatje</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        accent: '#F97316',
+                        light: '#F8FAFC',
+                        dark: '#374151'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="font-sans text-dark antialiased">
+    <!-- @COMPONENT: Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold text-dark">WebsiteMaatje</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-dark hover:text-primary transition-colors font-medium">Home</a>
+                    <a href="#pakketten" class="text-dark hover:text-primary transition-colors font-medium">Pakketten</a>
+                    <a href="#over-ons" class="text-dark hover:text-primary transition-colors font-medium">Over ons</a>
+                    <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-dark" data-implementation="Mobile menu toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section id="home" class="pt-20 pb-16 bg-gradient-to-br from-light via-white to-blue-50 overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark leading-tight mb-6">
+                        Jouw website, 
+                        <span class="text-primary">gemaakt door</span>
+                        <span class="text-accent">je maatje</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 max-w-2xl">
+                        WebsiteMaatje helpt je snel en betaalbaar online. Persoonlijk, betrouwbaar en zonder gedoe.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button class="bg-accent hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" data-event="click:handleConsultation">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            Plan gratis kennismaking
+                        </button>
+                        <button class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300" data-event="click:scrollToPakketten">
+                            Bekijk pakketten
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- A modern workspace with laptop showing website designs and coffee cup -->
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Modern workspace with laptop and web design" 
+                         class="rounded-2xl shadow-2xl w-full h-auto" data-mock-image="true" />
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-sm font-medium text-dark">100% tevreden klanten</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Packages Section -->
+    <section id="pakketten" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">Onze pakketten</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Kies het pakket dat bij jou past. Van eenvoudige starterspagina tot uitgebreide website met alle toeters en bellen.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- @MAP: packages.map(package => ( -->
+                <!-- Starter Package -->
+                <div class="bg-white border-2 border-gray-100 rounded-2xl p-8 hover:border-primary transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-2">Starter</h3>
+                        <div class="text-4xl font-bold text-accent mb-2">€199</div>
+                        <div class="text-gray-600">eenmalig</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Simpele onepager</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Basisdesign</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Contactformulier</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Mobiel vriendelijk</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary hover:bg-blue-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105" data-event="click:selectPackage" data-package="starter">
+                        Kies Starter
+                    </button>
+                </div>
+
+                <!-- Plus Package -->
+                <div class="bg-white border-2 border-accent rounded-2xl p-8 hover:border-accent transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-accent text-white px-4 py-1 rounded-full text-sm font-semibold">
+                            Populair
+                        </div>
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-star text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-2">Plus</h3>
+                        <div class="text-4xl font-bold text-accent mb-2">€399</div>
+                        <div class="text-gray-600">eenmalig</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Tot 5 pagina's</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Modern design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Volledig responsive</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Contactformulier</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Social media integratie</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-accent hover:bg-orange-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105" data-event="click:selectPackage" data-package="plus">
+                        Kies Plus
+                    </button>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="bg-white border-2 border-gray-100 rounded-2xl p-8 hover:border-primary transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-crown text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-2">Premium</h3>
+                        <div class="text-4xl font-bold text-accent mb-2">€699</div>
+                        <div class="text-gray-600">eenmalig</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Tot 10 pagina's</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Maatwerkdesign</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>SEO-optimalisatie</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Basisbeheer (3 maanden)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Analytics & rapportage</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary hover:bg-blue-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105" data-event="click:selectPackage" data-package="premium">
+                        Kies Premium
+                    </button>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Packages Section -->
+
+    <!-- @COMPONENT: About Section -->
+    <section id="over-ons" class="py-20 bg-gradient-to-br from-light to-blue-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- A friendly team working together on web projects in a modern office -->
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Friendly team working on web projects" 
+                         class="rounded-2xl shadow-xl w-full h-auto" data-mock-image="true" />
+                </div>
+                
+                <div>
+                    <h2 class="text-4xl font-bold text-dark mb-6">Over WebsiteMaatje</h2>
+                    <p class="text-xl text-gray-600 mb-6">
+                        Wij zijn jouw digitale maatje. Persoonlijk contact en een website die echt bij jou past.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Bij WebsiteMaatje geloven we dat elke ondernemer een professionele website verdient, zonder de hoofdpijn van ingewikkelde processen of torenhoge kosten. We nemen je bij de hand en zorgen ervoor dat je online aanwezigheid perfect aansluit bij jouw bedrijf en doelgroep.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent mb-2" data-bind="stats.happyClients">50+</div>
+                            <div class="text-gray-600">Tevreden klanten</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2" data-bind="stats.projectsCompleted">100+</div>
+                            <div class="text-gray-600">Websites gemaakt</div>
+                        </div>
+                    </div>
+                    
+                    <button class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105" data-event="click:learnMore">
+                        Leer ons beter kennen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Process Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">Zo werken we samen</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Van eerste kennismaking tot live website in 4 eenvoudige stappen.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- @MAP: processSteps.map((step, index) => ( -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
+                        1
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Kennismaking</h3>
+                    <p class="text-gray-600">Gratis gesprek om jouw wensen en doelen te bespreken.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
+                        2
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Ontwerp</h3>
+                    <p class="text-gray-600">We maken een design dat perfect bij jouw merk past.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
+                        3
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Ontwikkeling</h3>
+                    <p class="text-gray-600">Je website wordt gebouwd met aandacht voor detail.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
+                        4
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Live</h3>
+                    <p class="text-gray-600">Je website gaat online en jij kunt trots zijn!</p>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Process Section -->
+
+    <!-- @COMPONENT: Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-light to-blue-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-dark mb-4">Klaar om te beginnen?</h2>
+                    <p class="text-xl text-gray-600">
+                        Stuur ons een berichtje en we nemen snel contact met je op voor een vrijblijvend gesprek.
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-dark mb-6">Stuur je vraag aan je WebsiteMaatje</h3>
+                        <form class="space-y-6" data-implementation="Contact form submission">
+                            <!-- @STATE: formData:object = {name: '', email: '', message: ''} -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-dark mb-2">Naam *</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" 
+                                       placeholder="Je volledige naam" data-bind="formData.name" data-mock="true">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-dark mb-2">E-mailadres *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" 
+                                       placeholder="je@email.nl" data-bind="formData.email" data-mock="true">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-dark mb-2">Bericht *</label>
+                                <textarea id="message" name="message" rows="5" required 
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none" 
+                                          placeholder="Vertel ons over je project..." data-bind="formData.message" data-mock="true"></textarea>
+                            </div>
+                            
+                            <button type="submit" 
+                                    class="w-full bg-accent hover:bg-orange-600 text-white py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" 
+                                    data-event="click:handleFormSubmit">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Verstuur bericht
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold text-dark mb-6">Direct contact</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark mb-1">E-mail</h4>
+                                    <p class="text-gray-600" data-bind="contact.email">hallo@websitemaatje.nl</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark mb-1">Telefoon</h4>
+                                    <p class="text-gray-600" data-bind="contact.phone">06 - 12 34 56 78</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fab fa-whatsapp text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark mb-1">WhatsApp</h4>
+                                    <p class="text-gray-600">Stuur ons een berichtje</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 p-6 bg-white rounded-xl shadow-sm">
+                            <h4 class="font-semibold text-dark mb-2">Reactietijd</h4>
+                            <p class="text-gray-600">We reageren binnen 24 uur op je bericht, vaak veel sneller!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-white text-sm"></i>
+                        </div>
+                        <span class="text-xl font-bold">WebsiteMaatje</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Jouw digitale maatje voor een professionele website. Persoonlijk, betrouwbaar en zonder gedoe.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors" data-implementation="Social media links">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Diensten</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-primary transition-colors">Website ontwerp</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Webshop ontwikkeling</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">SEO optimalisatie</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Website onderhoud</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li data-bind="contact.email">hallo@websitemaatje.nl</li>
+                        <li data-bind="contact.phone">06 - 12 34 56 78</li>
+                        <li>Nederland</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 WebsiteMaatje. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement business logic, API calls, or state management
+        
+        (function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Form submission placeholder
+            const contactForm = document.querySelector('form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement actual form submission logic
+                    alert('Bedankt voor je bericht! We nemen snel contact met je op.');
+                });
+            }
+
+            // Package selection handlers
+            document.querySelectorAll('[data-event*="selectPackage"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const packageType = this.getAttribute('data-package');
+                    // TODO: Implement package selection logic
+                    document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Consultation button handler
+            document.querySelectorAll('[data-event*="handleConsultation"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    // TODO: Implement consultation booking logic
+                    document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Mobile menu toggle placeholder
+            const mobileMenuButton = document.querySelector('[data-implementation*="Mobile menu toggle"]');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    // TODO: Implement mobile menu toggle
+                    console.log('Mobile menu toggle clicked');
+                });
+            }
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Apply animation to elements when they come into view
+            document.querySelectorAll('.grid > div, .space-y-6 > div').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>
