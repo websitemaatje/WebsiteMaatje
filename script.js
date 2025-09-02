@@ -489,42 +489,43 @@ function initializeProjectBuilder() {
         }
     });
     
-    // Tooltip modal functions
+    // Simple tooltip functions
     function showTooltipModal(text) {
-        // Remove existing tooltip if any
-        const existingTooltip = document.querySelector('.tooltip-modal');
-        if (existingTooltip) {
-            existingTooltip.remove();
-        }
+        // Remove existing tooltips
+        document.querySelectorAll('.simple-tooltip').forEach(t => t.remove());
         
-        // Create tooltip modal
-        const modal = document.createElement('div');
-        modal.className = 'tooltip-modal';
-        modal.innerHTML = `
-            <div class="tooltip-content">
-                <button class="tooltip-close" onclick="this.parentElement.parentElement.remove()">&times;</button>
-                <p style="margin: 0; padding-right: 1rem;">${text}</p>
-            </div>
-        `;
+        // Create simple tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'simple-tooltip';
+        tooltip.textContent = text;
         
-        // Add to body
-        document.body.appendChild(modal);
+        // Add to body (so it's not constrained by parent overflow)
+        document.body.appendChild(tooltip);
         
-        // Close on background click
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.remove();
+        // Position relative to the clicked icon
+        const infoIcon = event.target.closest('.card-info-icon');
+        const iconRect = infoIcon.getBoundingClientRect();
+        
+        // Position tooltip above and slightly to the right of the icon
+        tooltip.style.position = 'fixed';
+        tooltip.style.top = (iconRect.top - tooltip.offsetHeight - 10) + 'px';
+        tooltip.style.left = (iconRect.left - tooltip.offsetWidth + iconRect.width) + 'px';
+        
+        // Remove tooltip after 4 seconds or on click elsewhere
+        setTimeout(() => {
+            if (tooltip.parentNode) {
+                tooltip.remove();
             }
-        });
+        }, 4000);
         
-        // Close on escape key
-        const handleEscape = function(e) {
-            if (e.key === 'Escape') {
-                modal.remove();
-                document.removeEventListener('keydown', handleEscape);
-            }
+        // Close on click anywhere
+        const closeTooltip = function() {
+            tooltip.remove();
+            document.removeEventListener('click', closeTooltip);
         };
-        document.addEventListener('keydown', handleEscape);
+        setTimeout(() => {
+            document.addEventListener('click', closeTooltip);
+        }, 100);
     }
     
     function handleSingleSelect(card, value, nextStep) {
