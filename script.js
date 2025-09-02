@@ -453,11 +453,13 @@ function initializeProjectBuilder() {
     
     function updateNavigation() {
         const prevBtn = document.getElementById('prevStep');
+        const navigationDiv = document.querySelector('.builder-navigation');
         
-        // Enable prev button for all steps except step0 and finalStep
+        // Hide navigation completely for step0 and finalStep
         if (currentStep === 'step0' || currentStep === 'finalStep') {
-            prevBtn.disabled = true;
+            navigationDiv.style.display = 'none';
         } else {
+            navigationDiv.style.display = 'block';
             prevBtn.disabled = false;
         }
     }
