@@ -498,7 +498,6 @@ function initializeProjectBuilder() {
             });
             
             // Store tooltip text and remove title attribute to prevent default browser tooltip
-            const tooltipText = card.getAttribute('title');
             card.removeAttribute('title');
             card.setAttribute('data-tooltip', tooltipText || '');
         }
