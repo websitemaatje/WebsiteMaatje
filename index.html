@@ -1,807 +1,1308 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechFlow Solutions - Web Development & Cloud Services</title>
-    
-    <!-- Bootstrap CSS with Replit dark theme -->
-    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Navigation Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#home">
-                <i class="fas fa-code me-2"></i>TechFlow Solutions
-            </a>
-            
-            <!-- Mobile menu toggle -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- Navigation menu -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Diensten</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Over Ons</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TechFlow Solutions - Web Development & Cloud Services</title>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <h1 class="display-4 fw-bold mb-4">
-                            Moderne Web Development & Cloud Solutions
-                        </h1>
-                        <p class="lead mb-4">
-                            Wij transformeren uw digitale visie tot realiteit met cutting-edge webontwikkeling 
-                            en betrouwbare cloud services. Van concept tot implementatie.
+        <!-- Bootstrap CSS with Replit dark theme -->
+        <link
+            href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome for icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Navigation Header -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#home">
+                    <i class="fas fa-code me-2"></i>TechFlow Solutions
+                </a>
+
+                <!-- Mobile menu toggle -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Diensten</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">Over Ons</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-6">
+                        <div class="hero-content">
+                            <h1 class="display-4 fw-bold mb-4">
+                                Modern Web Development & Cloud Solutions
+                            </h1>
+                            <p class="lead mb-4">
+                                Wij transformeren uw digitale visie tot
+                                realiteit met cutting-edge webontwikkeling en
+                                betrouwbare cloud services. Van concept tot
+                                implementatie.
+                            </p>
+                            <div class="d-flex flex-wrap gap-3">
+                                <a
+                                    href="#services"
+                                    class="btn btn-primary btn-lg smooth-scroll"
+                                >
+                                    <i class="fas fa-rocket me-2"></i>Ontdek
+                                    Onze Diensten
+                                </a>
+                                <a
+                                    href="#contact"
+                                    class="btn btn-outline-secondary btn-lg smooth-scroll"
+                                >
+                                    <i class="fas fa-comments me-2"></i>Start
+                                    Gesprek
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-graphic text-center">
+                            <i class="fas fa-laptop-code hero-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="display-5 fw-bold mb-3">Onze Diensten</h2>
+                        <p class="lead text-muted">
+                            Professionele oplossingen voor al uw digitale
+                            behoeften
                         </p>
-                        <div class="d-flex flex-wrap gap-3">
-                            <a href="#services" class="btn btn-primary btn-lg smooth-scroll">
-                                <i class="fas fa-rocket me-2"></i>Ontdek Onze Diensten
-                            </a>
-                            <a href="#contact" class="btn btn-outline-secondary btn-lg smooth-scroll">
-                                <i class="fas fa-comments me-2"></i>Start Gesprek
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-graphic text-center">
-                        <i class="fas fa-laptop-code hero-icon"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-3">Onze Diensten</h2>
-                    <p class="lead text-muted">
-                        Professionele oplossingen voor al uw digitale behoeften
-                    </p>
-                </div>
-            </div>
-            
-            <div class="row g-4">
-                <!-- Web Development Service -->
-                <div class="col-lg-6">
-                    <div class="service-card h-100">
-                        <div class="card-body p-4">
-                            <div class="service-icon mb-3">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3 class="h4 mb-3">Web Development</h3>
-                            <p class="text-muted mb-4">
-                                Van responsive websites tot complexe webapplicaties. Wij bouwen moderne, 
-                                snelle en gebruiksvriendelijke digitale ervaringen.
-                            </p>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2">
-                                    <i class="fas fa-check text-success me-2"></i>
-                                    Responsive Design
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check text-success me-2"></i>
-                                    Modern Frameworks (React, Vue, Angular)
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check text-success me-2"></i>
-                                    E-commerce Solutions
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check text-success me-2"></i>
-                                    Progressive Web Apps
-                                </li>
-                            </ul>
-                            <div class="text-center">
-                                <button type="button" class="btn btn-primary" id="startProjectBuilder">
-                                    <i class="fas fa-magic me-2"></i>Project Samenstellen
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Cloud Services -->
-                <div class="col-lg-6">
-                    <div class="service-card h-100">
-                        <div class="card-body p-4">
-                            <div class="service-icon mb-3">
-                                <i class="fas fa-cloud"></i>
-                            </div>
-                            <h3 class="h4 mb-3">Cloud Services</h3>
-                            <p class="text-muted mb-4">
-                                Schaalbare en betrouwbare cloud infrastructuur voor uw bedrijf. 
-                                Van migratie tot beheer, wij zorgen voor uw cloud omgeving.
-                            </p>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2">
-                                    <i class="fas fa-check text-success me-2"></i>
-                                    AWS/Azure/Google Cloud
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check text-success me-2"></i>
-                                    DevOps & CI/CD
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check text-success me-2"></i>
-                                    Container Orchestration
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check text-success me-2"></i>
-                                    24/7 Monitoring & Support
-                                </li>
-                            </ul>
-                            <div class="text-center">
-                                <button type="button" class="btn btn-primary" id="startCloudBuilder">
-                                    <i class="fas fa-cloud me-2"></i>Cloud Advies
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5 bg-dark">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="display-6 fw-bold mb-4">Waarom Kiezen Voor TechFlow?</h2>
-                    <p class="lead mb-4">
-                        Als jong en ambitieus bedrijf brengen wij frisse ideeën, persoonlijke aandacht 
-                        en moderne technologieën samen om uw digitale ambities waar te maken.
-                    </p>
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="stat-item text-center">
-                                <i class="fas fa-heart text-primary mb-2" style="font-size: 2rem;"></i>
-                                <h5 class="fw-bold">Persoonlijk</h5>
-                                <p class="text-muted small">Directe communicatie en echte betrokkenheid</p>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="stat-item text-center">
-                                <i class="fas fa-rocket text-primary mb-2" style="font-size: 2rem;"></i>
-                                <h5 class="fw-bold">Innovatief</h5>
-                                <p class="text-muted small">Nieuwste technologieën en moderne aanpak</p>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="stat-item text-center">
-                                <i class="fas fa-handshake text-primary mb-2" style="font-size: 2rem;"></i>
-                                <h5 class="fw-bold">Betrouwbaar</h5>
-                                <p class="text-muted small">Transparante afspraken en eerlijke prijzen</p>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="stat-item text-center">
-                                <i class="fas fa-bolt text-primary mb-2" style="font-size: 2rem;"></i>
-                                <h5 class="fw-bold">Flexibel</h5>
-                                <p class="text-muted small">Snel schakelen en meedenken met uw wensen</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-graphic text-center">
-                        <i class="fas fa-users-cog about-icon"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Builder Section -->
-    <section id="project-builder" class="py-5 bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-3">Stel Uw Project Samen</h2>
-                    <p class="lead text-muted">
-                        Beantwoord een paar eenvoudige vragen en ontvang een offerte op maat
-                    </p>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div id="projectBuilder" class="project-builder">
-                        <!-- Step 0: Service Selection -->
-                        <div class="builder-step active" id="step0">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">1</div>
-                                <h3 class="h4 mb-3">Welke service heeft uw interesse?</h3>
-                            </div>
-                            <div class="options-grid">
-                                <button type="button" class="option-card" data-next="step1-webdev" data-value="web-development">
+                <div class="row g-4">
+                    <!-- Web Development Service -->
+                    <div class="col-lg-6">
+                        <div class="service-card h-100">
+                            <div class="card-body p-4">
+                                <div class="service-icon mb-3">
                                     <i class="fas fa-code"></i>
-                                    <h5>Web Development</h5>
-                                    <p>Websites en webapplicaties</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step1-cloud" data-value="cloud-services">
+                                </div>
+                                <h3 class="h4 mb-3">Web Development</h3>
+                                <p class="text-muted mb-4">
+                                    Van responsive websites tot complexe
+                                    webapplicaties. Wij bouwen moderne, snelle
+                                    en gebruiksvriendelijke digitale ervaringen.
+                                </p>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i>
+                                        Responsive Design
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i>
+                                        Modern Frameworks (React, Vue, Angular)
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i>
+                                        E-commerce Solutions
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i>
+                                        Progressive Web Apps
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                        id="startProjectBuilder"
+                                    >
+                                        <i class="fas fa-magic me-2"></i>Project
+                                        Samenstellen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cloud Services -->
+                    <div class="col-lg-6">
+                        <div class="service-card h-100">
+                            <div class="card-body p-4">
+                                <div class="service-icon mb-3">
                                     <i class="fas fa-cloud"></i>
-                                    <h5>Cloud Services</h5>
-                                    <p>Cloud infrastructuur en beheer</p>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 1: Web Dev - Package Type -->
-                        <div class="builder-step" id="step1-webdev">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">2</div>
-                                <h3 class="h4 mb-3">Wil je een compleet pakket of alleen losse diensten?</h3>
-                            </div>
-                            <div class="options-grid">
-                                <button type="button" class="option-card" data-next="step2a-webdev" data-value="complete-package">
-                                    <i class="fas fa-box-open"></i>
-                                    <h5>Compleet pakket</h5>
-                                    <p>Alles uit één hand</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step2b-webdev" data-value="individual-services">
-                                    <i class="fas fa-puzzle-piece"></i>
-                                    <h5>Losse diensten</h5>
-                                    <p>Alleen specifieke onderdelen</p>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 1: Cloud - Current Environment -->
-                        <div class="builder-step" id="step1-cloud">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">2</div>
-                                <h3 class="h4 mb-3">Gebruikt uw bedrijf momenteel al een cloudomgeving?</h3>
-                            </div>
-                            <div class="options-grid">
-                                <button type="button" class="option-card" data-next="step2a-cloud" data-value="cloud-yes">
-                                    <i class="fas fa-check-circle"></i>
-                                    <h5>Ja</h5>
-                                    <p>We gebruiken al cloud services</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step2b-cloud" data-value="cloud-no">
-                                    <i class="fas fa-times-circle"></i>
-                                    <h5>Nee</h5>
-                                    <p>We gebruiken nog geen cloud</p>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 2a: Web Dev - Complete Package -->
-                        <div class="builder-step" id="step2a-webdev">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">3</div>
-                                <h3 class="h4 mb-3">Heb je al een domeinnaam en hosting?</h3>
-                            </div>
-                            <div class="options-grid">
-                                <button type="button" class="option-card" data-next="step4-webdev" data-value="domain-hosting-yes">
-                                    <i class="fas fa-check-circle"></i>
-                                    <h5>Ja, heb ik al</h5>
-                                    <p>Alleen design nodig</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step4-webdev" data-value="domain-hosting-no">
-                                    <i class="fas fa-tools"></i>
-                                    <h5>Nee, regel alles</h5>
-                                    <p>Wij regelen alles voor je</p>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 2a: Cloud - Current Provider -->
-                        <div class="builder-step" id="step2a-cloud">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">3</div>
-                                <h3 class="h4 mb-3">Welke provider gebruikt u momenteel?</h3>
-                            </div>
-                            <div class="options-grid">
-                                <button type="button" class="option-card" data-next="step3a-cloud" data-value="aws">
-                                    <i class="fab fa-aws"></i>
-                                    <h5>AWS</h5>
-                                    <p>Amazon Web Services</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step3a-cloud" data-value="azure">
-                                    <i class="fab fa-microsoft"></i>
-                                    <h5>Azure</h5>
-                                    <p>Microsoft Azure</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step3a-cloud" data-value="gcp">
-                                    <i class="fab fa-google"></i>
-                                    <h5>Google Cloud</h5>
-                                    <p>Google Cloud Platform</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step3a-cloud" data-value="other-provider">
-                                    <i class="fas fa-question-circle"></i>
-                                    <h5>Anders / Onbekend</h5>
-                                    <p>Andere provider of onzeker</p>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 2b: Cloud - Migration Plans -->
-                        <div class="builder-step" id="step2b-cloud">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">3</div>
-                                <h3 class="h4 mb-3">Bent u van plan binnenkort over te stappen naar de cloud?</h3>
-                            </div>
-                            <div class="options-grid">
-                                <button type="button" class="option-card" data-next="step3b-cloud" data-value="migration-3months">
-                                    <i class="fas fa-rocket"></i>
-                                    <h5>Ja, binnen 3 maanden</h5>
-                                    <p>We willen snel starten</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step3b-cloud" data-value="migration-6months">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <h5>Ja, binnen 6 maanden</h5>
-                                    <p>We plannen voor dit jaar</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step3b-cloud" data-value="migration-exploring">
-                                    <i class="fas fa-search"></i>
-                                    <h5>We oriënteren nog</h5>
-                                    <p>We zijn aan het onderzoeken</p>
-                                </button>
-                                <button type="button" class="option-card" data-next="step5-cloud" data-value="migration-no">
-                                    <i class="fas fa-pause-circle"></i>
-                                    <h5>Nee, voorlopig niet</h5>
-                                    <p>Geen concrete plannen</p>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 2b: Web Dev - Individual Services -->
-                        <div class="builder-step" id="step2b-webdev">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">3</div>
-                                <h3 class="h4 mb-3">Welke diensten heb je nodig?</h3>
-                                <p class="text-muted">Meerdere opties mogelijk</p>
-                            </div>
-                            <div class="options-grid multi-select">
-                                <button type="button" class="option-card multi" data-value="webdesign">
-                                    <i class="fas fa-palette"></i>
-                                    <h5>Webdesign</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="hosting">
-                                    <i class="fas fa-server"></i>
-                                    <h5>Hosting</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="domain">
-                                    <i class="fas fa-globe"></i>
-                                    <h5>Domeinregistratie</h5>
-                                </button>
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="button" class="btn btn-primary" id="continueStep2b-webdev" disabled>
-                                    Doorgaan <i class="fas fa-arrow-right ms-2"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 3a: Cloud - Current Challenges -->
-                        <div class="builder-step" id="step3a-cloud">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">4</div>
-                                <h3 class="h4 mb-3">Wat is de grootste uitdaging die u ervaart?</h3>
-                            </div>
-                            <div class="options-grid multi-select">
-                                <button type="button" class="option-card multi" data-value="cost-management">
-                                    <i class="fas fa-euro-sign"></i>
-                                    <h5>Kostenbeheersing</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="security">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <h5>Beveiliging</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="monitoring">
-                                    <i class="fas fa-chart-line"></i>
-                                    <h5>Monitoring</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="scalability">
-                                    <i class="fas fa-expand-arrows-alt"></i>
-                                    <h5>Schaalbaarheid</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="devops">
-                                    <i class="fas fa-cogs"></i>
-                                    <h5>CI/CD of DevOps automatisering</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="containers">
-                                    <i class="fab fa-docker"></i>
-                                    <h5>Containerbeheer (Docker/Kubernetes)</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="other-challenge">
-                                    <i class="fas fa-question"></i>
-                                    <h5>Anders</h5>
-                                </button>
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="button" class="btn btn-primary" id="continueStep3a-cloud">
-                                    Doorgaan <i class="fas fa-arrow-right ms-2"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 3b: Cloud - Migration Goals -->
-                        <div class="builder-step" id="step3b-cloud">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">4</div>
-                                <h3 class="h4 mb-3">Wat wilt u in de cloud onderbrengen?</h3>
-                                <p class="text-muted">Meerdere opties mogelijk</p>
-                            </div>
-                            <div class="options-grid multi-select">
-                                <button type="button" class="option-card multi" data-value="website-app">
-                                    <i class="fas fa-globe"></i>
-                                    <h5>Website / applicatie</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="backend-api">
-                                    <i class="fas fa-server"></i>
-                                    <h5>Backend / API</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="data-storage">
-                                    <i class="fas fa-database"></i>
-                                    <h5>Data & opslag</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="cicd-pipelines">
-                                    <i class="fas fa-code-branch"></i>
-                                    <h5>CI/CD pipelines</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="full-infrastructure">
-                                    <i class="fas fa-building"></i>
-                                    <h5>Alles (volledige infrastructuur)</h5>
-                                </button>
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="button" class="btn btn-primary" id="continueStep3b-cloud">
-                                    Doorgaan <i class="fas fa-arrow-right ms-2"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 4: Web Dev - Extra Modules -->
-                        <div class="builder-step" id="step4-webdev">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">4</div>
-                                <h3 class="h4 mb-3">Wil je extra modules toevoegen?</h3>
-                                <p class="text-muted">Meerdere keuzes mogelijk</p>
-                            </div>
-                            <div class="options-grid multi-select">
-                                <button type="button" class="option-card multi" data-value="seo" title="Verbeter uw vindbaar­heid in Google en andere zoek­machines. Meer bezoekers = meer potentiële klanten voor uw bedrijf.">
-                                    <div class="info-icon">i</div>
-                                    <i class="fas fa-search"></i>
-                                    <h5>SEO-optimalisatie</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="maintenance" title="Houd uw website veilig en up-to-date. Voorkomt problemen en zorgt dat alles blijft werken zonder zorgen voor u.">
-                                    <div class="info-icon">i</div>
-                                    <i class="fas fa-wrench"></i>
-                                    <h5>Onderhoud & updates</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="webshop" title="Start met online verkopen! Een complete webshop met betaal­mogelijkheden, voorraad­beheer en order­verwerking.">
-                                    <div class="info-icon">i</div>
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <h5>Webshop</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="cms-training" title="Leer zelf uw website beheren. Teksten wijzigen, foto's toevoegen en pagina's updaten zonder technische kennis.">
-                                    <div class="info-icon">i</div>
-                                    <i class="fas fa-graduation-cap"></i>
-                                    <h5>CMS-training</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="branding" title="Professionele uitstraling met een uniek logo en consistente huisstijl. Maakt uw bedrijf herkenbaar en betrouwbaar.">
-                                    <div class="info-icon">i</div>
-                                    <i class="fas fa-paint-brush"></i>
-                                    <h5>Branding / logo / huisstijl</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="none" data-tooltip="Alleen de basis­website zonder extra functionaliteiten. Altijd later uit te breiden.">
-                                    <i class="fas fa-times"></i>
-                                    <h5>Geen extra modules</h5>
-                                </button>
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="button" class="btn btn-primary" id="continueStep4-webdev">
-                                    Doorgaan <i class="fas fa-arrow-right ms-2"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 5: Cloud - Technologies -->
-                        <div class="builder-step" id="step5-cloud">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">5</div>
-                                <h3 class="h4 mb-3">Welke cloudtechnologieën zijn voor u relevant?</h3>
-                                <p class="text-muted">Meerdere keuzes mogelijk</p>
-                            </div>
-                            <div class="options-grid multi-select">
-                                <button type="button" class="option-card multi" data-value="devops-cicd">
-                                    <i class="fas fa-cogs"></i>
-                                    <h5>DevOps & CI/CD</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="container-orchestration">
-                                    <i class="fab fa-docker"></i>
-                                    <h5>Container orchestration (Docker/Kubernetes)</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="monitoring-support" title="24/7 controle van uw cloud services. Voorkomt downtime en waarschuwt direct bij problemen, zodat alles blijft draaien.">
-                                    <div class="info-icon">i</div>
-                                    <i class="fas fa-headset"></i>
-                                    <h5>24/7 monitoring & support</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="infrastructure-code" title="Automatische backup van al uw data. Geen zorgen over verlies van bestanden of databases - alles wordt veilig bewaard.">
-                                    <div class="info-icon">i</div>
-                                    <i class="fas fa-code"></i>
-                                    <h5>Infrastructure-as-Code</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="load-balancing" title="Uw systeem groeit mee met uw bedrijf. Meer bezoekers? Automatisch meer capaciteit. Minder drukte? Lagere kosten.">
-                                    <div class="info-icon">i</div>
-                                    <i class="fas fa-balance-scale"></i>
-                                    <h5>Load balancing & scaling</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="identity-access" title="Bescherm uw bedrijf tegen cyberaanvallen. SSL-certificaten, firewalls en beveiligingsscans houden hackers buiten.">
-                                    <div class="info-icon">i</div>
-                                    <i class="fas fa-key"></i>
-                                    <h5>Identity & Access Management</h5>
-                                </button>
-                                <button type="button" class="option-card multi" data-value="other-tech">
-                                    <i class="fas fa-plus"></i>
-                                    <h5>Anders</h5>
-                                </button>
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="button" class="btn btn-primary" id="continueStep5-cloud">
-                                    Doorgaan <i class="fas fa-arrow-right ms-2"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 5: Web Dev Summary -->
-                        <div class="builder-step" id="step5-webdev">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">5</div>
-                                <h3 class="h4 mb-3">Samenvatting van uw keuzes</h3>
-                            </div>
-                            <div class="summary-card">
-                                <div id="summaryContent-webdev">
-                                    <!-- Summary will be generated here -->
                                 </div>
-                                <hr>
+                                <h3 class="h4 mb-3">Cloud Services</h3>
+                                <p class="text-muted mb-4">
+                                    Schaalbare en betrouwbare cloud
+                                    infrastructuur voor uw bedrijf. Van migratie
+                                    tot beheer, wij zorgen voor uw cloud
+                                    omgeving.
+                                </p>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i>
+                                        AWS/Azure/Google Cloud
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i>
+                                        DevOps & CI/CD
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i>
+                                        Container Orchestration
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i>
+                                        24/7 Monitoring & Support
+                                    </li>
+                                </ul>
                                 <div class="text-center">
-                                    <p class="lead mb-4">Ik stel nu een offerte op maat voor je op. Wil je doorgaan met het project?</p>
-                                    <div class="d-flex gap-3 justify-content-center">
-                                        <button type="button" class="btn btn-success btn-lg" id="startProject-webdev">
-                                            <i class="fas fa-rocket me-2"></i>Project starten!
-                                        </button>
-                                        <button type="button" class="btn btn-outline-secondary btn-lg" id="saveForLater-webdev">
-                                            <i class="fas fa-bookmark me-2"></i>Bewaren voor later
-                                        </button>
-                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                        id="startCloudBuilder"
+                                    >
+                                        <i class="fas fa-cloud me-2"></i>Cloud
+                                        Advies
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Step 6: Cloud Summary -->
-                        <div class="builder-step" id="step6-cloud">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">6</div>
-                                <h3 class="h4 mb-3">Samenvatting van uw behoeften</h3>
-                            </div>
-                            <div class="summary-card">
-                                <div id="summaryContent-cloud">
-                                    <!-- Summary will be generated here -->
-                                </div>
-                                <hr>
-                                <div class="text-center">
-                                    <p class="lead mb-4">Wilt u een vrijblijvend advies of offerte ontvangen op basis van uw antwoorden?</p>
-                                    <div class="d-flex gap-3 justify-content-center">
-                                        <button type="button" class="btn btn-success btn-lg" id="startProject-cloud">
-                                            <i class="fas fa-handshake me-2"></i>Ja, contactmoment inplannen
-                                        </button>
-                                        <button type="button" class="btn btn-outline-secondary btn-lg" id="saveForLater-cloud">
-                                            <i class="fas fa-bookmark me-2"></i>Informatie bewaren
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 5: Summary (old, keeping for compatibility) -->
-                        <div class="builder-step" id="step5">
-                            <div class="step-header text-center mb-4">
-                                <div class="step-number">5</div>
-                                <h3 class="h4 mb-3">Samenvatting van uw keuzes</h3>
-                            </div>
-                            <div class="summary-card">
-                                <div id="summaryContent">
-                                    <!-- Summary will be generated here -->
-                                </div>
-                                <hr>
-                                <div class="text-center">
-                                    <p class="lead mb-4">Ik stel nu een offerte op maat voor je op. Wil je doorgaan met het project?</p>
-                                    <div class="d-flex gap-3 justify-content-center">
-                                        <button type="button" class="btn btn-success btn-lg" id="startProject">
-                                            <i class="fas fa-rocket me-2"></i>Project starten!
-                                        </button>
-                                        <button type="button" class="btn btn-outline-secondary btn-lg" id="saveForLater">
-                                            <i class="fas fa-bookmark me-2"></i>Bewaren voor later
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Final Step: Result -->
-                        <div class="builder-step" id="finalStep">
-                            <div class="text-center">
-                                <div id="finalMessage">
-                                    <!-- Final message will be shown here -->
-                                </div>
-                                <button type="button" class="btn btn-primary mt-4" id="restartBuilder">
-                                    <i class="fas fa-redo me-2"></i>Nieuwe samenstelling maken
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Navigation -->
-                        <div class="builder-navigation text-center mt-4">
-                            <button type="button" class="btn btn-outline-secondary" id="prevStep" disabled>
-                                <i class="fas fa-arrow-left me-2"></i>Vorige
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-3">Neem Contact Op</h2>
-                    <p class="lead text-muted">
-                        Klaar om uw project te starten? Laten we praten over uw mogelijkheden.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <form id="contactForm" class="contact-form">
+        <!-- About Section -->
+        <section id="about" class="py-5 bg-dark">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="display-6 fw-bold mb-4">
+                            Waarom Kiezen Voor TechFlow?
+                        </h2>
+                        <p class="lead mb-4">
+                            Als jong en ambitieus bedrijf brengen wij frisse
+                            ideeën, persoonlijke aandacht en moderne
+                            technologieën samen om uw digitale ambities waar te
+                            maken.
+                        </p>
                         <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="firstName" class="form-label">Voornaam *</label>
-                                <input type="text" class="form-control" id="firstName" required>
-                                <div class="invalid-feedback">
-                                    Voornaam is verplicht.
+                            <div class="col-6">
+                                <div class="stat-item text-center">
+                                    <i
+                                        class="fas fa-heart text-primary mb-2"
+                                        style="font-size: 2rem"
+                                    ></i>
+                                    <h5 class="fw-bold">Persoonlijk</h5>
+                                    <p class="text-muted small">
+                                        Directe communicatie en echte
+                                        betrokkenheid
+                                    </p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="lastName" class="form-label">Achternaam *</label>
-                                <input type="text" class="form-control" id="lastName" required>
-                                <div class="invalid-feedback">
-                                    Achternaam is verplicht.
+                            <div class="col-6">
+                                <div class="stat-item text-center">
+                                    <i
+                                        class="fas fa-rocket text-primary mb-2"
+                                        style="font-size: 2rem"
+                                    ></i>
+                                    <h5 class="fw-bold">Innovatief</h5>
+                                    <p class="text-muted small">
+                                        Nieuwste technologieën en moderne aanpak
+                                    </p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form-label">E-mailadres *</label>
-                                <input type="email" class="form-control" id="email" required>
-                                <div class="invalid-feedback">
-                                    Een geldig e-mailadres is verplicht.
+                            <div class="col-6">
+                                <div class="stat-item text-center">
+                                    <i
+                                        class="fas fa-handshake text-primary mb-2"
+                                        style="font-size: 2rem"
+                                    ></i>
+                                    <h5 class="fw-bold">Betrouwbaar</h5>
+                                    <p class="text-muted small">
+                                        Transparante afspraken en eerlijke
+                                        prijzen
+                                    </p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="phone" class="form-label">Telefoonnummer</label>
-                                <input type="tel" class="form-control" id="phone">
-                            </div>
-                            <div class="col-12">
-                                <label for="company" class="form-label">Bedrijfsnaam</label>
-                                <input type="text" class="form-control" id="company">
-                            </div>
-                            <div class="col-12">
-                                <label for="service" class="form-label">Gewenste Service *</label>
-                                <select class="form-select" id="service" required>
-                                    <option value="">Selecteer een service...</option>
-                                    <option value="web-development">Web Development</option>
-                                    <option value="cloud-services">Cloud Services</option>
-                                    <option value="consultation">Consultatie</option>
-                                    <option value="other">Anders</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Selecteer alstublieft een service.
+                            <div class="col-6">
+                                <div class="stat-item text-center">
+                                    <i
+                                        class="fas fa-bolt text-primary mb-2"
+                                        style="font-size: 2rem"
+                                    ></i>
+                                    <h5 class="fw-bold">Flexibel</h5>
+                                    <p class="text-muted small">
+                                        Snel schakelen en meedenken met uw
+                                        wensen
+                                    </p>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <label for="message" class="form-label">Bericht *</label>
-                                <textarea class="form-control" id="message" rows="5" 
-                                         placeholder="Vertel ons over uw project..." required></textarea>
-                                <div class="invalid-feedback">
-                                    Een bericht is verplicht.
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-graphic text-center">
+                            <i class="fas fa-users-cog about-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Builder Section -->
+        <section id="project-builder" class="py-5 bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="display-5 fw-bold mb-3">
+                            Stel Uw Project Samen
+                        </h2>
+                        <p class="lead text-muted">
+                            Beantwoord een paar eenvoudige vragen en ontvang een
+                            offerte op maat
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div id="projectBuilder" class="project-builder">
+                            <!-- Step 0: Service Selection -->
+                            <div class="builder-step active" id="step0">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">1</div>
+                                    <h3 class="h4 mb-3">
+                                        Welke service heeft uw interesse?
+                                    </h3>
+                                </div>
+                                <div class="options-grid">
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step1-webdev"
+                                        data-value="web-development"
+                                    >
+                                        <i class="fas fa-code"></i>
+                                        <h5>Web Development</h5>
+                                        <p>Websites en webapplicaties</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step1-cloud"
+                                        data-value="cloud-services"
+                                    >
+                                        <i class="fas fa-cloud"></i>
+                                        <h5>Cloud Services</h5>
+                                        <p>Cloud infrastructuur en beheer</p>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="privacy" required>
-                                    <label class="form-check-label" for="privacy">
-                                        Ik ga akkoord met het privacybeleid *
-                                    </label>
-                                    <div class="invalid-feedback">
-                                        U moet akkoord gaan met het privacybeleid.
+
+                            <!-- Step 1: Web Dev - Package Type -->
+                            <div class="builder-step" id="step1-webdev">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">2</div>
+                                    <h3 class="h4 mb-3">
+                                        Wil je een compleet pakket of alleen
+                                        losse diensten?
+                                    </h3>
+                                </div>
+                                <div class="options-grid">
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step2a-webdev"
+                                        data-value="complete-package"
+                                    >
+                                        <i class="fas fa-box-open"></i>
+                                        <h5>Compleet pakket</h5>
+                                        <p>Alles uit één hand</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step2b-webdev"
+                                        data-value="individual-services"
+                                    >
+                                        <i class="fas fa-puzzle-piece"></i>
+                                        <h5>Losse diensten</h5>
+                                        <p>Alleen specifieke onderdelen</p>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 1: Cloud - Current Environment -->
+                            <div class="builder-step" id="step1-cloud">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">2</div>
+                                    <h3 class="h4 mb-3">
+                                        Gebruikt uw bedrijf momenteel al een
+                                        cloudomgeving?
+                                    </h3>
+                                </div>
+                                <div class="options-grid">
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step2a-cloud"
+                                        data-value="cloud-yes"
+                                    >
+                                        <i class="fas fa-check-circle"></i>
+                                        <h5>Ja</h5>
+                                        <p>We gebruiken al cloud services</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step2b-cloud"
+                                        data-value="cloud-no"
+                                    >
+                                        <i class="fas fa-times-circle"></i>
+                                        <h5>Nee</h5>
+                                        <p>We gebruiken nog geen cloud</p>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2a: Web Dev - Complete Package -->
+                            <div class="builder-step" id="step2a-webdev">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">3</div>
+                                    <h3 class="h4 mb-3">
+                                        Heb je al een domeinnaam en hosting?
+                                    </h3>
+                                </div>
+                                <div class="options-grid">
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step4-webdev"
+                                        data-value="domain-hosting-yes"
+                                    >
+                                        <i class="fas fa-check-circle"></i>
+                                        <h5>Ja, heb ik al</h5>
+                                        <p>Alleen design nodig</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step4-webdev"
+                                        data-value="domain-hosting-no"
+                                    >
+                                        <i class="fas fa-tools"></i>
+                                        <h5>Nee, regel alles</h5>
+                                        <p>Wij regelen alles voor je</p>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2a: Cloud - Current Provider -->
+                            <div class="builder-step" id="step2a-cloud">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">3</div>
+                                    <h3 class="h4 mb-3">
+                                        Welke provider gebruikt u momenteel?
+                                    </h3>
+                                </div>
+                                <div class="options-grid">
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step3a-cloud"
+                                        data-value="aws"
+                                    >
+                                        <i class="fab fa-aws"></i>
+                                        <h5>AWS</h5>
+                                        <p>Amazon Web Services</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step3a-cloud"
+                                        data-value="azure"
+                                    >
+                                        <i class="fab fa-microsoft"></i>
+                                        <h5>Azure</h5>
+                                        <p>Microsoft Azure</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step3a-cloud"
+                                        data-value="gcp"
+                                    >
+                                        <i class="fab fa-google"></i>
+                                        <h5>Google Cloud</h5>
+                                        <p>Google Cloud Platform</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step3a-cloud"
+                                        data-value="other-provider"
+                                    >
+                                        <i class="fas fa-question-circle"></i>
+                                        <h5>Anders / Onbekend</h5>
+                                        <p>Andere provider of onzeker</p>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2b: Cloud - Migration Plans -->
+                            <div class="builder-step" id="step2b-cloud">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">3</div>
+                                    <h3 class="h4 mb-3">
+                                        Bent u van plan binnenkort over te
+                                        stappen naar de cloud?
+                                    </h3>
+                                </div>
+                                <div class="options-grid">
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step3b-cloud"
+                                        data-value="migration-3months"
+                                    >
+                                        <i class="fas fa-rocket"></i>
+                                        <h5>Ja, binnen 3 maanden</h5>
+                                        <p>We willen snel starten</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step3b-cloud"
+                                        data-value="migration-6months"
+                                    >
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <h5>Ja, binnen 6 maanden</h5>
+                                        <p>We plannen voor dit jaar</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step3b-cloud"
+                                        data-value="migration-exploring"
+                                    >
+                                        <i class="fas fa-search"></i>
+                                        <h5>We oriënteren nog</h5>
+                                        <p>We zijn aan het onderzoeken</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card"
+                                        data-next="step5-cloud"
+                                        data-value="migration-no"
+                                    >
+                                        <i class="fas fa-pause-circle"></i>
+                                        <h5>Nee, voorlopig niet</h5>
+                                        <p>Geen concrete plannen</p>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2b: Web Dev - Individual Services -->
+                            <div class="builder-step" id="step2b-webdev">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">3</div>
+                                    <h3 class="h4 mb-3">
+                                        Welke diensten heb je nodig?
+                                    </h3>
+                                    <p class="text-muted">
+                                        Meerdere opties mogelijk
+                                    </p>
+                                </div>
+                                <div class="options-grid multi-select">
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="webdesign"
+                                    >
+                                        <i class="fas fa-palette"></i>
+                                        <h5>Webdesign</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="hosting"
+                                    >
+                                        <i class="fas fa-server"></i>
+                                        <h5>Hosting</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="domain"
+                                    >
+                                        <i class="fas fa-globe"></i>
+                                        <h5>Domeinregistratie</h5>
+                                    </button>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                        id="continueStep2b-webdev"
+                                        disabled
+                                    >
+                                        Doorgaan
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3a: Cloud - Current Challenges -->
+                            <div class="builder-step" id="step3a-cloud">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">4</div>
+                                    <h3 class="h4 mb-3">
+                                        Wat is de grootste uitdaging die u
+                                        ervaart?
+                                    </h3>
+                                </div>
+                                <div class="options-grid multi-select">
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="cost-management"
+                                    >
+                                        <i class="fas fa-euro-sign"></i>
+                                        <h5>Kostenbeheersing</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="security"
+                                    >
+                                        <i class="fas fa-shield-alt"></i>
+                                        <h5>Beveiliging</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="monitoring"
+                                    >
+                                        <i class="fas fa-chart-line"></i>
+                                        <h5>Monitoring</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="scalability"
+                                    >
+                                        <i class="fas fa-expand-arrows-alt"></i>
+                                        <h5>Schaalbaarheid</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="devops"
+                                    >
+                                        <i class="fas fa-cogs"></i>
+                                        <h5>CI/CD of DevOps automatisering</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="containers"
+                                    >
+                                        <i class="fab fa-docker"></i>
+                                        <h5>
+                                            Containerbeheer (Docker/Kubernetes)
+                                        </h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="other-challenge"
+                                    >
+                                        <i class="fas fa-question"></i>
+                                        <h5>Anders</h5>
+                                    </button>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                        id="continueStep3a-cloud"
+                                    >
+                                        Doorgaan
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3b: Cloud - Migration Goals -->
+                            <div class="builder-step" id="step3b-cloud">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">4</div>
+                                    <h3 class="h4 mb-3">
+                                        Wat wilt u in de cloud onderbrengen?
+                                    </h3>
+                                    <p class="text-muted">
+                                        Meerdere opties mogelijk
+                                    </p>
+                                </div>
+                                <div class="options-grid multi-select">
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="website-app"
+                                    >
+                                        <i class="fas fa-globe"></i>
+                                        <h5>Website / applicatie</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="backend-api"
+                                    >
+                                        <i class="fas fa-server"></i>
+                                        <h5>Backend / API</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="data-storage"
+                                    >
+                                        <i class="fas fa-database"></i>
+                                        <h5>Data & opslag</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="cicd-pipelines"
+                                    >
+                                        <i class="fas fa-code-branch"></i>
+                                        <h5>CI/CD pipelines</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="full-infrastructure"
+                                    >
+                                        <i class="fas fa-building"></i>
+                                        <h5>
+                                            Alles (volledige infrastructuur)
+                                        </h5>
+                                    </button>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                        id="continueStep3b-cloud"
+                                    >
+                                        Doorgaan
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Web Dev - Extra Modules -->
+                            <div class="builder-step" id="step4-webdev">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">4</div>
+                                    <h3 class="h4 mb-3">
+                                        Wil je extra modules toevoegen?
+                                    </h3>
+                                    <p class="text-muted">
+                                        Meerdere keuzes mogelijk
+                                    </p>
+                                </div>
+                                <div class="options-grid multi-select">
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="seo"
+                                        title="Verbeter uw vindbaar­heid in Google en andere zoek­machines. Meer bezoekers = meer potentiële klanten voor uw bedrijf."
+                                    >
+                                        <div class="info-icon">i</div>
+                                        <i class="fas fa-search"></i>
+                                        <h5>SEO-optimalisatie</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="maintenance"
+                                        title="Houd uw website veilig en up-to-date. Voorkomt problemen en zorgt dat alles blijft werken zonder zorgen voor u."
+                                    >
+                                        <div class="info-icon">i</div>
+                                        <i class="fas fa-wrench"></i>
+                                        <h5>Onderhoud & updates</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="webshop"
+                                        title="Start met online verkopen! Een complete webshop met betaal­mogelijkheden, voorraad­beheer en order­verwerking."
+                                    >
+                                        <div class="info-icon">i</div>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <h5>Webshop</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="cms-training"
+                                        title="Leer zelf uw website beheren. Teksten wijzigen, foto's toevoegen en pagina's updaten zonder technische kennis."
+                                    >
+                                        <div class="info-icon">i</div>
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <h5>CMS-training</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="branding"
+                                        title="Professionele uitstraling met een uniek logo en consistente huisstijl. Maakt uw bedrijf herkenbaar en betrouwbaar."
+                                    >
+                                        <div class="info-icon">i</div>
+                                        <i class="fas fa-paint-brush"></i>
+                                        <h5>Branding / logo / huisstijl</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="none"
+                                        data-tooltip="Alleen de basis­website zonder extra functionaliteiten. Altijd later uit te breiden."
+                                    >
+                                        <i class="fas fa-times"></i>
+                                        <h5>Geen extra modules</h5>
+                                    </button>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                        id="continueStep4-webdev"
+                                    >
+                                        Doorgaan
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 5: Cloud - Technologies -->
+                            <div class="builder-step" id="step5-cloud">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">5</div>
+                                    <h3 class="h4 mb-3">
+                                        Welke cloudtechnologieën zijn voor u
+                                        relevant?
+                                    </h3>
+                                    <p class="text-muted">
+                                        Meerdere keuzes mogelijk
+                                    </p>
+                                </div>
+                                <div class="options-grid multi-select">
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="devops-cicd"
+                                    >
+                                        <i class="fas fa-cogs"></i>
+                                        <h5>DevOps & CI/CD</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="container-orchestration"
+                                    >
+                                        <i class="fab fa-docker"></i>
+                                        <h5>
+                                            Container orchestration
+                                            (Docker/Kubernetes)
+                                        </h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="monitoring-support"
+                                        title="24/7 controle van uw cloud services. Voorkomt downtime en waarschuwt direct bij problemen, zodat alles blijft draaien."
+                                    >
+                                        <div class="info-icon">i</div>
+                                        <i class="fas fa-headset"></i>
+                                        <h5>24/7 monitoring & support</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="infrastructure-code"
+                                        title="Automatische backup van al uw data. Geen zorgen over verlies van bestanden of databases - alles wordt veilig bewaard."
+                                    >
+                                        <div class="info-icon">i</div>
+                                        <i class="fas fa-code"></i>
+                                        <h5>Infrastructure-as-Code</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="load-balancing"
+                                        title="Uw systeem groeit mee met uw bedrijf. Meer bezoekers? Automatisch meer capaciteit. Minder drukte? Lagere kosten."
+                                    >
+                                        <div class="info-icon">i</div>
+                                        <i class="fas fa-balance-scale"></i>
+                                        <h5>Load balancing & scaling</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="identity-access"
+                                        title="Bescherm uw bedrijf tegen cyberaanvallen. SSL-certificaten, firewalls en beveiligingsscans houden hackers buiten."
+                                    >
+                                        <div class="info-icon">i</div>
+                                        <i class="fas fa-key"></i>
+                                        <h5>Identity & Access Management</h5>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="option-card multi"
+                                        data-value="other-tech"
+                                    >
+                                        <i class="fas fa-plus"></i>
+                                        <h5>Anders</h5>
+                                    </button>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                        id="continueStep5-cloud"
+                                    >
+                                        Doorgaan
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 5: Web Dev Summary -->
+                            <div class="builder-step" id="step5-webdev">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">5</div>
+                                    <h3 class="h4 mb-3">
+                                        Samenvatting van uw keuzes
+                                    </h3>
+                                </div>
+                                <div class="summary-card">
+                                    <div id="summaryContent-webdev">
+                                        <!-- Summary will be generated here -->
+                                    </div>
+                                    <hr />
+                                    <div class="text-center">
+                                        <p class="lead mb-4">
+                                            Ik stel nu een offerte op maat voor
+                                            je op. Wil je doorgaan met het
+                                            project?
+                                        </p>
+                                        <div
+                                            class="d-flex gap-3 justify-content-center"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="btn btn-success btn-lg"
+                                                id="startProject-webdev"
+                                            >
+                                                <i
+                                                    class="fas fa-rocket me-2"
+                                                ></i
+                                                >Project starten!
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary btn-lg"
+                                                id="saveForLater-webdev"
+                                            >
+                                                <i
+                                                    class="fas fa-bookmark me-2"
+                                                ></i
+                                                >Bewaren voor later
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    <i class="fas fa-paper-plane me-2"></i>Verstuur Bericht
+
+                            <!-- Step 6: Cloud Summary -->
+                            <div class="builder-step" id="step6-cloud">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">6</div>
+                                    <h3 class="h4 mb-3">
+                                        Samenvatting van uw behoeften
+                                    </h3>
+                                </div>
+                                <div class="summary-card">
+                                    <div id="summaryContent-cloud">
+                                        <!-- Summary will be generated here -->
+                                    </div>
+                                    <hr />
+                                    <div class="text-center">
+                                        <p class="lead mb-4">
+                                            Wilt u een vrijblijvend advies of
+                                            offerte ontvangen op basis van uw
+                                            antwoorden?
+                                        </p>
+                                        <div
+                                            class="d-flex gap-3 justify-content-center"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="btn btn-success btn-lg"
+                                                id="startProject-cloud"
+                                            >
+                                                <i
+                                                    class="fas fa-handshake me-2"
+                                                ></i
+                                                >Ja, contactmoment inplannen
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary btn-lg"
+                                                id="saveForLater-cloud"
+                                            >
+                                                <i
+                                                    class="fas fa-bookmark me-2"
+                                                ></i
+                                                >Informatie bewaren
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 5: Summary (old, keeping for compatibility) -->
+                            <div class="builder-step" id="step5">
+                                <div class="step-header text-center mb-4">
+                                    <div class="step-number">5</div>
+                                    <h3 class="h4 mb-3">
+                                        Samenvatting van uw keuzes
+                                    </h3>
+                                </div>
+                                <div class="summary-card">
+                                    <div id="summaryContent">
+                                        <!-- Summary will be generated here -->
+                                    </div>
+                                    <hr />
+                                    <div class="text-center">
+                                        <p class="lead mb-4">
+                                            Ik stel nu een offerte op maat voor
+                                            je op. Wil je doorgaan met het
+                                            project?
+                                        </p>
+                                        <div
+                                            class="d-flex gap-3 justify-content-center"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="btn btn-success btn-lg"
+                                                id="startProject"
+                                            >
+                                                <i
+                                                    class="fas fa-rocket me-2"
+                                                ></i
+                                                >Project starten!
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary btn-lg"
+                                                id="saveForLater"
+                                            >
+                                                <i
+                                                    class="fas fa-bookmark me-2"
+                                                ></i
+                                                >Bewaren voor later
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Final Step: Result -->
+                            <div class="builder-step" id="finalStep">
+                                <div class="text-center">
+                                    <div id="finalMessage">
+                                        <!-- Final message will be shown here -->
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary mt-4"
+                                        id="restartBuilder"
+                                    >
+                                        <i class="fas fa-redo me-2"></i>Nieuwe
+                                        samenstelling maken
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Navigation -->
+                            <div class="builder-navigation text-center mt-4">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    id="prevStep"
+                                    disabled
+                                >
+                                    <i class="fas fa-arrow-left me-2"></i>Vorige
                                 </button>
                             </div>
                         </div>
-                    </form>
-                    
-                    <!-- Success message (hidden by default) -->
-                    <div id="successMessage" class="alert alert-success mt-4 d-none">
-                        <i class="fas fa-check-circle me-2"></i>
-                        Bedankt voor uw bericht! Wij nemen binnen 24 uur contact met u op.
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0 text-muted">
-                        &copy; 2024 TechFlow Solutions. Alle rechten voorbehouden.
-                    </p>
+        <!-- Contact Section -->
+        <section id="contact" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="display-5 fw-bold mb-3">Neem Contact Op</h2>
+                        <p class="lead text-muted">
+                            Klaar om uw project te starten? Laten we praten over
+                            uw mogelijkheden.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="social-links">
-                        <a href="#" class="text-muted me-3">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="text-muted me-3">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="text-muted">
-                            <i class="fab fa-twitter"></i>
-                        </a>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <form id="contactForm" class="contact-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label"
+                                        >Voornaam *</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="firstName"
+                                        required
+                                    />
+                                    <div class="invalid-feedback">
+                                        Voornaam is verplicht.
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label"
+                                        >Achternaam *</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="lastName"
+                                        required
+                                    />
+                                    <div class="invalid-feedback">
+                                        Achternaam is verplicht.
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label"
+                                        >E-mailadres *</label
+                                    >
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="email"
+                                        required
+                                    />
+                                    <div class="invalid-feedback">
+                                        Een geldig e-mailadres is verplicht.
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label"
+                                        >Telefoonnummer</label
+                                    >
+                                    <input
+                                        type="tel"
+                                        class="form-control"
+                                        id="phone"
+                                    />
+                                </div>
+                                <div class="col-12">
+                                    <label for="company" class="form-label"
+                                        >Bedrijfsnaam</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="company"
+                                    />
+                                </div>
+                                <div class="col-12">
+                                    <label for="service" class="form-label"
+                                        >Gewenste Service *</label
+                                    >
+                                    <select
+                                        class="form-select"
+                                        id="service"
+                                        required
+                                    >
+                                        <option value="">
+                                            Selecteer een service...
+                                        </option>
+                                        <option value="web-development">
+                                            Web Development
+                                        </option>
+                                        <option value="cloud-services">
+                                            Cloud Services
+                                        </option>
+                                        <option value="consultation">
+                                            Consultatie
+                                        </option>
+                                        <option value="other">Anders</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Selecteer alstublieft een service.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label"
+                                        >Bericht *</label
+                                    >
+                                    <textarea
+                                        class="form-control"
+                                        id="message"
+                                        rows="5"
+                                        placeholder="Vertel ons over uw project..."
+                                        required
+                                    ></textarea>
+                                    <div class="invalid-feedback">
+                                        Een bericht is verplicht.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="privacy"
+                                            required
+                                        />
+                                        <label
+                                            class="form-check-label"
+                                            for="privacy"
+                                        >
+                                            Ik ga akkoord met het privacybeleid
+                                            *
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            U moet akkoord gaan met het
+                                            privacybeleid.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary btn-lg"
+                                    >
+                                        <i class="fas fa-paper-plane me-2"></i
+                                        >Verstuur Bericht
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Success message (hidden by default) -->
+                        <div
+                            id="successMessage"
+                            class="alert alert-success mt-4 d-none"
+                        >
+                            <i class="fas fa-check-circle me-2"></i>
+                            Bedankt voor uw bericht! Wij nemen binnen 24 uur
+                            contact met u op.
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
-</body>
+        <!-- Footer -->
+        <footer class="bg-dark py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0 text-muted">
+                            &copy; 2024 TechFlow Solutions. Alle rechten
+                            voorbehouden.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="social-links">
+                            <a href="#" class="text-muted me-3">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-muted me-3">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="text-muted">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Custom JavaScript -->
+        <script src="script.js"></script>
+    </body>
 </html>
