@@ -554,6 +554,21 @@ function initializeProjectBuilder() {
         showStep('step5');
     });
     
+    // Start project builder button
+    const startBuilderBtn = document.getElementById('startProjectBuilder');
+    if (startBuilderBtn) {
+        startBuilderBtn.addEventListener('click', function() {
+            document.getElementById('project-builder').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+            // Small delay to ensure scroll completes
+            setTimeout(() => {
+                showStep('step1');
+            }, 500);
+        });
+    }
+
     // Final buttons
     document.getElementById('startProject').addEventListener('click', function() {
         showFinalMessage('success');
