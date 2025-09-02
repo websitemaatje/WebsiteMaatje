@@ -413,12 +413,21 @@ function initializeProjectBuilder() {
     if (!projectBuilder) return;
     
     // State management
-    let currentStep = 'step1';
+    let currentStep = 'step0';
+    let selectedService = '';
     let selections = {
+        // Web development
         packageType: '',
         domainHosting: '',
         services: [],
-        modules: []
+        modules: [],
+        // Cloud services
+        cloudEnvironment: '',
+        currentProvider: '',
+        challenges: [],
+        migrationPlans: '',
+        migrationGoals: [],
+        technologies: []
     };
     
     // Step navigation
@@ -481,10 +490,18 @@ function initializeProjectBuilder() {
         card.classList.add('active');
         
         // Store selection
-        if (currentStep === 'step1') {
+        if (currentStep === 'step0') {
+            selectedService = value;
+        } else if (currentStep === 'step1-webdev') {
             selections.packageType = value;
-        } else if (currentStep === 'step2a') {
+        } else if (currentStep === 'step2a-webdev') {
             selections.domainHosting = value;
+        } else if (currentStep === 'step1-cloud') {
+            selections.cloudEnvironment = value;
+        } else if (currentStep === 'step2a-cloud') {
+            selections.currentProvider = value;
+        } else if (currentStep === 'step2b-cloud') {
+            selections.migrationPlans = value;
         }
         
         // Move to next step after delay
@@ -498,7 +515,7 @@ function initializeProjectBuilder() {
     function handleMultiSelect(card, value) {
         card.classList.toggle('active');
         
-        if (currentStep === 'step2b') {
+        if (currentStep === 'step2b-webdev') {
             if (card.classList.contains('active')) {
                 if (!selections.services.includes(value)) {
                     selections.services.push(value);
@@ -508,10 +525,40 @@ function initializeProjectBuilder() {
             }
             
             // Enable/disable continue button
-            const continueBtn = document.getElementById('continueStep2b');
+            const continueBtn = document.getElementById('continueStep2b-webdev');
             continueBtn.disabled = selections.services.length === 0;
             
-        } else if (currentStep === 'step4') {
+        } else if (currentStep === 'step3a-cloud') {
+            // Cloud challenges
+            if (card.classList.contains('active')) {
+                if (!selections.challenges.includes(value)) {
+                    selections.challenges.push(value);
+                }
+            } else {
+                selections.challenges = selections.challenges.filter(c => c !== value);
+            }
+            
+        } else if (currentStep === 'step3b-cloud') {
+            // Cloud migration goals
+            if (card.classList.contains('active')) {
+                if (!selections.migrationGoals.includes(value)) {
+                    selections.migrationGoals.push(value);
+                }
+            } else {
+                selections.migrationGoals = selections.migrationGoals.filter(g => g !== value);
+            }
+            
+        } else if (currentStep === 'step5-cloud') {
+            // Cloud technologies
+            if (card.classList.contains('active')) {
+                if (!selections.technologies.includes(value)) {
+                    selections.technologies.push(value);
+                }
+            } else {
+                selections.technologies = selections.technologies.filter(t => t !== value);
+            }
+            
+        } else if (currentStep === 'step4-webdev') {
             // Handle "none" selection
             if (value === 'none') {
                 if (card.classList.contains('active')) {
@@ -544,39 +591,119 @@ function initializeProjectBuilder() {
         }
     }
     
-    // Continue buttons
-    document.getElementById('continueStep2b').addEventListener('click', function() {
-        showStep('step4');
-    });
+    // Continue buttons - Web Dev
+    const continueStep2bWebdev = document.getElementById('continueStep2b-webdev');
+    if (continueStep2bWebdev) {
+        continueStep2bWebdev.addEventListener('click', function() {
+            showStep('step4-webdev');
+        });
+    }
     
-    document.getElementById('continueStep4').addEventListener('click', function() {
-        generateSummary();
-        showStep('step5');
-    });
+    const continueStep4Webdev = document.getElementById('continueStep4-webdev');
+    if (continueStep4Webdev) {
+        continueStep4Webdev.addEventListener('click', function() {
+            generateWebDevSummary();
+            showStep('step5-webdev');
+        });
+    }
     
-    // Start project builder button
+    // Continue buttons - Cloud
+    const continueStep3aCloud = document.getElementById('continueStep3a-cloud');
+    if (continueStep3aCloud) {
+        continueStep3aCloud.addEventListener('click', function() {
+            showStep('step5-cloud');
+        });
+    }
+    
+    const continueStep3bCloud = document.getElementById('continueStep3b-cloud');
+    if (continueStep3bCloud) {
+        continueStep3bCloud.addEventListener('click', function() {
+            showStep('step5-cloud');
+        });
+    }
+    
+    const continueStep5Cloud = document.getElementById('continueStep5-cloud');
+    if (continueStep5Cloud) {
+        continueStep5Cloud.addEventListener('click', function() {
+            generateCloudSummary();
+            showStep('step6-cloud');
+        });
+    }
+    
+    // Start project builder buttons
     const startBuilderBtn = document.getElementById('startProjectBuilder');
+    const startCloudBtn = document.getElementById('startCloudBuilder');
+    
     if (startBuilderBtn) {
         startBuilderBtn.addEventListener('click', function() {
+            selectedService = 'web-development';
             document.getElementById('project-builder').scrollIntoView({ 
                 behavior: 'smooth', 
                 block: 'start' 
             });
-            // Small delay to ensure scroll completes
             setTimeout(() => {
-                showStep('step1');
+                showStep('step1-webdev');
+            }, 500);
+        });
+    }
+    
+    if (startCloudBtn) {
+        startCloudBtn.addEventListener('click', function() {
+            selectedService = 'cloud-services';
+            document.getElementById('project-builder').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+            setTimeout(() => {
+                showStep('step1-cloud');
             }, 500);
         });
     }
 
-    // Final buttons
-    document.getElementById('startProject').addEventListener('click', function() {
-        showFinalMessage('success');
-    });
+    // Final buttons - Web Dev
+    const startProjectWebdev = document.getElementById('startProject-webdev');
+    if (startProjectWebdev) {
+        startProjectWebdev.addEventListener('click', function() {
+            showFinalMessage('success', 'webdev');
+        });
+    }
     
-    document.getElementById('saveForLater').addEventListener('click', function() {
-        showFinalMessage('saved');
-    });
+    const saveForLaterWebdev = document.getElementById('saveForLater-webdev');
+    if (saveForLaterWebdev) {
+        saveForLaterWebdev.addEventListener('click', function() {
+            showFinalMessage('saved', 'webdev');
+        });
+    }
+    
+    // Final buttons - Cloud
+    const startProjectCloud = document.getElementById('startProject-cloud');
+    if (startProjectCloud) {
+        startProjectCloud.addEventListener('click', function() {
+            showFinalMessage('success', 'cloud');
+        });
+    }
+    
+    const saveForLaterCloud = document.getElementById('saveForLater-cloud');
+    if (saveForLaterCloud) {
+        saveForLaterCloud.addEventListener('click', function() {
+            showFinalMessage('saved', 'cloud');
+        });
+    }
+    
+    // Legacy final buttons (keeping for compatibility)
+    const startProject = document.getElementById('startProject');
+    if (startProject) {
+        startProject.addEventListener('click', function() {
+            showFinalMessage('success', 'webdev');
+        });
+    }
+    
+    const saveForLater = document.getElementById('saveForLater');
+    if (saveForLater) {
+        saveForLater.addEventListener('click', function() {
+            showFinalMessage('saved', 'webdev');
+        });
+    }
     
     document.getElementById('restartBuilder').addEventListener('click', function() {
         restartBuilder();
@@ -588,7 +715,12 @@ function initializeProjectBuilder() {
     });
     
     function generateSummary() {
-        const summaryContent = document.getElementById('summaryContent');
+        // Legacy function for compatibility - use generateWebDevSummary instead
+        generateWebDevSummary();
+    }
+    
+    function generateWebDevSummary() {
+        const summaryContent = document.getElementById('summaryContent-webdev') || document.getElementById('summaryContent');
         let html = '<div class="summary-items">';
         
         // Package type
@@ -639,25 +771,138 @@ function initializeProjectBuilder() {
         summaryContent.innerHTML = html;
     }
     
-    function showFinalMessage(type) {
+    function generateCloudSummary() {
+        const summaryContent = document.getElementById('summaryContent-cloud');
+        let html = '<div class="summary-items">';
+        
+        // Current cloud environment
+        if (selections.cloudEnvironment === 'cloud-yes') {
+            html += '<div class="summary-item"><i class="fas fa-cloud text-primary"></i> <strong>Huidige situatie:</strong> Gebruikt al cloud services</div>';
+            
+            if (selections.currentProvider) {
+                const providerLabels = {
+                    'aws': 'Amazon Web Services (AWS)',
+                    'azure': 'Microsoft Azure',
+                    'gcp': 'Google Cloud Platform',
+                    'other-provider': 'Andere provider'
+                };
+                html += `<div class="summary-item"><i class="fas fa-server text-info"></i> Provider: ${providerLabels[selections.currentProvider]}</div>`;
+            }
+            
+            // Challenges
+            if (selections.challenges.length > 0) {
+                html += '<div class="summary-item mt-3"><strong>Uitdagingen:</strong></div>';
+                const challengeLabels = {
+                    'cost-management': 'Kostenbeheersing',
+                    'security': 'Beveiliging',
+                    'monitoring': 'Monitoring',
+                    'scalability': 'Schaalbaarheid',
+                    'devops': 'CI/CD of DevOps automatisering',
+                    'containers': 'Containerbeheer (Docker/Kubernetes)',
+                    'other-challenge': 'Anders'
+                };
+                
+                selections.challenges.forEach(challenge => {
+                    if (challengeLabels[challenge]) {
+                        html += `<div class="summary-item"><i class="fas fa-exclamation-triangle text-warning"></i> ${challengeLabels[challenge]}</div>`;
+                    }
+                });
+            }
+        } else {
+            html += '<div class="summary-item"><i class="fas fa-cloud text-primary"></i> <strong>Huidige situatie:</strong> Nog geen cloud services</div>';
+            
+            if (selections.migrationPlans) {
+                const planLabels = {
+                    'migration-3months': 'Migratie binnen 3 maanden',
+                    'migration-6months': 'Migratie binnen 6 maanden',
+                    'migration-exploring': 'Nog aan het oriënteren',
+                    'migration-no': 'Geen concrete plannen'
+                };
+                html += `<div class="summary-item"><i class="fas fa-calendar text-info"></i> ${planLabels[selections.migrationPlans]}</div>`;
+            }
+            
+            // Migration goals
+            if (selections.migrationGoals.length > 0) {
+                html += '<div class="summary-item mt-3"><strong>Wat naar cloud:</strong></div>';
+                const goalLabels = {
+                    'website-app': 'Website / applicatie',
+                    'backend-api': 'Backend / API',
+                    'data-storage': 'Data & opslag',
+                    'cicd-pipelines': 'CI/CD pipelines',
+                    'full-infrastructure': 'Volledige infrastructuur'
+                };
+                
+                selections.migrationGoals.forEach(goal => {
+                    if (goalLabels[goal]) {
+                        html += `<div class="summary-item"><i class="fas fa-arrow-up text-success"></i> ${goalLabels[goal]}</div>`;
+                    }
+                });
+            }
+        }
+        
+        // Technologies
+        if (selections.technologies.length > 0) {
+            html += '<div class="summary-item mt-3"><strong>Relevante technologieën:</strong></div>';
+            const techLabels = {
+                'devops-cicd': 'DevOps & CI/CD',
+                'container-orchestration': 'Container orchestration (Docker/Kubernetes)',
+                'monitoring-support': '24/7 monitoring & support',
+                'infrastructure-code': 'Infrastructure-as-Code',
+                'load-balancing': 'Load balancing & scaling',
+                'identity-access': 'Identity & Access Management',
+                'other-tech': 'Anders'
+            };
+            
+            selections.technologies.forEach(tech => {
+                if (techLabels[tech]) {
+                    html += `<div class="summary-item"><i class="fas fa-cog text-info"></i> ${techLabels[tech]}</div>`;
+                }
+            });
+        }
+        
+        html += '</div>';
+        summaryContent.innerHTML = html;
+    }
+    
+    function showFinalMessage(type, service = 'webdev') {
         const finalMessage = document.getElementById('finalMessage');
         
-        if (type === 'success') {
-            finalMessage.innerHTML = `
-                <div class="alert alert-success">
-                    <i class="fas fa-rocket fa-2x mb-3"></i>
-                    <h4>Fantastisch!</h4>
-                    <p>Wij gaan direct aan de slag met uw project. Binnen 24 uur neemt een van onze specialisten contact met u op om de details door te spreken.</p>
-                </div>
-            `;
+        if (service === 'cloud') {
+            if (type === 'success') {
+                finalMessage.innerHTML = `
+                    <div class="alert alert-success">
+                        <i class="fas fa-handshake fa-2x mb-3"></i>
+                        <h4>Uitstekend!</h4>
+                        <p>Binnen 24 uur neemt een van onze cloud specialisten contact met u op voor een vrijblijvend adviesgesprek over uw cloud behoeften.</p>
+                    </div>
+                `;
+            } else {
+                finalMessage.innerHTML = `
+                    <div class="alert alert-info">
+                        <i class="fas fa-bookmark fa-2x mb-3"></i>
+                        <h4>Informatie bewaard!</h4>
+                        <p>We hebben uw cloud behoeften genoteerd. U kunt altijd terugkomen voor meer informatie of advies.</p>
+                    </div>
+                `;
+            }
         } else {
-            finalMessage.innerHTML = `
-                <div class="alert alert-info">
-                    <i class="fas fa-bookmark fa-2x mb-3"></i>
-                    <h4>Opgeslagen!</h4>
-                    <p>We hebben uw keuzes bewaard. U kunt altijd terugkomen om uw project verder uit te werken. Geen zorgen, we versturen geen spam!</p>
-                </div>
-            `;
+            if (type === 'success') {
+                finalMessage.innerHTML = `
+                    <div class="alert alert-success">
+                        <i class="fas fa-rocket fa-2x mb-3"></i>
+                        <h4>Fantastisch!</h4>
+                        <p>Wij gaan direct aan de slag met uw project. Binnen 24 uur neemt een van onze specialisten contact met u op om de details door te spreken.</p>
+                    </div>
+                `;
+            } else {
+                finalMessage.innerHTML = `
+                    <div class="alert alert-info">
+                        <i class="fas fa-bookmark fa-2x mb-3"></i>
+                        <h4>Opgeslagen!</h4>
+                        <p>We hebben uw keuzes bewaard. U kunt altijd terugkomen om uw project verder uit te werken. Geen zorgen, we versturen geen spam!</p>
+                    </div>
+                `;
+            }
         }
         
         showStep('finalStep');
@@ -665,11 +910,20 @@ function initializeProjectBuilder() {
     
     function restartBuilder() {
         // Reset selections
+        selectedService = '';
         selections = {
+            // Web development
             packageType: '',
             domainHosting: '',
             services: [],
-            modules: []
+            modules: [],
+            // Cloud services
+            cloudEnvironment: '',
+            currentProvider: '',
+            challenges: [],
+            migrationPlans: '',
+            migrationGoals: [],
+            technologies: []
         };
         
         // Reset all cards
@@ -678,14 +932,59 @@ function initializeProjectBuilder() {
         });
         
         // Reset continue buttons
-        document.getElementById('continueStep2b').disabled = true;
+        const continueButtons = [
+            'continueStep2b-webdev',
+            'continueStep3a-cloud',
+            'continueStep3b-cloud',
+            'continueStep5-cloud'
+        ];
+        
+        continueButtons.forEach(buttonId => {
+            const button = document.getElementById(buttonId);
+            if (button) {
+                button.disabled = true;
+            }
+        });
         
         // Go to first step
-        showStep('step1');
+        showStep('step0');
     }
     
     function goToPreviousStep() {
-        if (currentStep === 'step2a' || currentStep === 'step2b') {
+        // Web Development flow
+        if (currentStep === 'step1-webdev') {
+            showStep('step0');
+        } else if (currentStep === 'step2a-webdev' || currentStep === 'step2b-webdev') {
+            showStep('step1-webdev');
+        } else if (currentStep === 'step4-webdev') {
+            if (selections.packageType === 'complete-package') {
+                showStep('step2a-webdev');
+            } else {
+                showStep('step2b-webdev');
+            }
+        } else if (currentStep === 'step5-webdev') {
+            showStep('step4-webdev');
+        }
+        // Cloud Services flow
+        else if (currentStep === 'step1-cloud') {
+            showStep('step0');
+        } else if (currentStep === 'step2a-cloud' || currentStep === 'step2b-cloud') {
+            showStep('step1-cloud');
+        } else if (currentStep === 'step3a-cloud') {
+            showStep('step2a-cloud');
+        } else if (currentStep === 'step3b-cloud') {
+            showStep('step2b-cloud');
+        } else if (currentStep === 'step5-cloud') {
+            if (selections.cloudEnvironment === 'cloud-yes') {
+                showStep('step3a-cloud');
+            } else {
+                showStep('step3b-cloud');
+            }
+        } else if (currentStep === 'step6-cloud') {
+            showStep('step5-cloud');
+        }
+        // Legacy support
+        else if (currentStep === 'step2a' || currentStep === 'step2b') {
             showStep('step1');
         } else if (currentStep === 'step4') {
             if (selections.packageType === 'complete-package') {
