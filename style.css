@@ -635,40 +635,57 @@ footer {
     transform: scale(1.1);
 }
 
-.card-info-icon[data-tooltip]:hover::after {
-    content: attr(data-tooltip);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--bs-dark);
-    color: var(--bs-white);
-    padding: 1rem 1.25rem;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    white-space: normal;
-    max-width: 320px;
-    width: max-content;
-    z-index: 999999;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--bs-gray-600);
-    animation: tooltipFadeIn 0.3s ease-in-out;
-    text-align: left;
-    pointer-events: none;
-}
-
-.card-info-icon[data-tooltip]:hover::before {
-    content: '';
+/* Tooltip Modal Styles */
+.tooltip-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 999998;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: tooltipFadeIn 0.3s ease-in-out;
-    pointer-events: none;
+    pointer-events: auto;
+}
+
+.tooltip-content {
+    background: var(--bs-dark);
+    color: var(--bs-white);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--bs-gray-600);
+    text-align: center;
+    position: relative;
+}
+
+.tooltip-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--bs-gray-400);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.tooltip-close:hover {
+    color: var(--bs-white);
 }
 
 @keyframes tooltipFadeIn {

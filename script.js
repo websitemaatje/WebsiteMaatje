@@ -464,9 +464,12 @@ function initializeProjectBuilder() {
     
     // Handle option cards
     projectBuilder.addEventListener('click', function(e) {
-        // Prevent card selection when clicking on info icon
+        // Handle info icon clicks
         if (e.target.closest('.card-info-icon')) {
             e.stopPropagation();
+            const infoIcon = e.target.closest('.card-info-icon');
+            const tooltipText = infoIcon.dataset.tooltip;
+            showTooltipModal(tooltipText);
             return;
         }
         
@@ -485,6 +488,44 @@ function initializeProjectBuilder() {
             handleSingleSelect(optionCard, value, nextStep);
         }
     });
+    
+    // Tooltip modal functions
+    function showTooltipModal(text) {
+        // Remove existing tooltip if any
+        const existingTooltip = document.querySelector('.tooltip-modal');
+        if (existingTooltip) {
+            existingTooltip.remove();
+        }
+        
+        // Create tooltip modal
+        const modal = document.createElement('div');
+        modal.className = 'tooltip-modal';
+        modal.innerHTML = `
+            <div class="tooltip-content">
+                <button class="tooltip-close" onclick="this.parentElement.parentElement.remove()">&times;</button>
+                <p style="margin: 0; padding-right: 1rem;">${text}</p>
+            </div>
+        `;
+        
+        // Add to body
+        document.body.appendChild(modal);
+        
+        // Close on background click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+        
+        // Close on escape key
+        const handleEscape = function(e) {
+            if (e.key === 'Escape') {
+                modal.remove();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+    }
     
     function handleSingleSelect(card, value, nextStep) {
         // Remove active class from siblings
