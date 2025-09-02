@@ -650,11 +650,12 @@ footer {
     white-space: normal;
     max-width: 320px;
     width: max-content;
-    z-index: 9999;
+    z-index: 999999;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     border: 1px solid var(--bs-gray-600);
     animation: tooltipFadeIn 0.3s ease-in-out;
     text-align: left;
+    pointer-events: none;
 }
 
 .card-info-icon[data-tooltip]:hover::before {
@@ -664,9 +665,10 @@ footer {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 9998;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999998;
     animation: tooltipFadeIn 0.3s ease-in-out;
+    pointer-events: none;
 }
 
 @keyframes tooltipFadeIn {
