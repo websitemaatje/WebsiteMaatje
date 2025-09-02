@@ -484,24 +484,27 @@ function initializeProjectBuilder() {
     // Custom tooltip functionality
     let currentTooltip = null;
     
-    // Add hover listeners to all info icons
-    document.querySelectorAll('.info-icon').forEach(icon => {
-        const card = icon.closest('button[title]');
-        if (card) {
-            const tooltipText = card.getAttribute('title');
-            icon.addEventListener('mouseenter', function(e) {
-                showTooltip(this, tooltipText);
-            });
-            
-            icon.addEventListener('mouseleave', function(e) {
-                hideTooltip();
-            });
-            
-            // Store tooltip text and remove title attribute to prevent default browser tooltip
-            card.removeAttribute('title');
-            card.setAttribute('data-tooltip', tooltipText || '');
-        }
-    });
+    // Initialize tooltips after a short delay to ensure all elements are ready
+    setTimeout(() => {
+        // Add hover listeners to all info icons
+        document.querySelectorAll('.info-icon').forEach(icon => {
+            const card = icon.closest('button[title]');
+            if (card) {
+                const tooltipText = card.getAttribute('title');
+                icon.addEventListener('mouseenter', function(e) {
+                    showTooltip(this, tooltipText);
+                });
+                
+                icon.addEventListener('mouseleave', function(e) {
+                    hideTooltip();
+                });
+                
+                // Store tooltip text and remove title attribute to prevent default browser tooltip
+                card.removeAttribute('title');
+                card.setAttribute('data-tooltip', tooltipText || '');
+            }
+        });
+    }, 100);
     
     function showTooltip(infoIcon, tooltipText) {
         // Remove existing tooltip
@@ -677,7 +680,10 @@ function initializeProjectBuilder() {
     // Continue buttons - Cloud
     const continueStep3aCloud = document.getElementById('continueStep3a-cloud');
     if (continueStep3aCloud) {
-        continueStep3aCloud.addEventListener('click', function() {
+        continueStep3aCloud.addEventListener('click', function(e) {
+            console.log('Continue button step3a-cloud clicked!');
+            e.preventDefault();
+            e.stopPropagation();
             showStep('step5-cloud');
         });
     }
