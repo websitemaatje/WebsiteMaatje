@@ -1,16 +1,28 @@
-[project]
+[tool.poetry]
 name = "repl-nix-workspace"
 version = "0.1.0"
 description = "Add your description here"
-requires-python = ">=3.11"
-dependencies = [
-    "email-validator>=2.3.0",
-    "flask>=3.1.2",
-    "flask-sqlalchemy>=3.1.1",
-    "gunicorn>=23.0.0",
-    "psycopg2-binary>=2.9.10",
-]
-# Make sure the 'packages' section is added
-packages = [
-    { include = "repl_nix_workspace" }  # Adjust this to your actual project structure
-]
+authors = ["Your Name <your.email@example.com>"]
+package-mode = false
+
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+email-validator = ">=2.3.0"
+flask = ">=3.1.2"
+flask-sqlalchemy = ">=3.1.1"
+gunicorn = ">=23.0.0"
+psycopg2-binary = ">=2.9.10"
+
+[tool.poetry.dev-dependencies]
+# Voeg hier je ontwikkelingsafhankelijkheden toe zoals pytest, black, enz.
+
+# Verwijder de tool.poetry.packages sectie, tenzij je specifieke bestanden wilt aangeven
+# [tool.poetry.packages]
+# [[tool.poetry.packages]]
+# from = "."
+# include = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
