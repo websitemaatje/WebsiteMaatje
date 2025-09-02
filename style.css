@@ -617,7 +617,7 @@ footer {
     right: 0.75rem;
     width: 24px;
     height: 24px;
-    background: #0d6efd;
+    background: rgba(13, 110, 253, 0.5);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -631,7 +631,7 @@ footer {
 }
 
 .card-info-icon:hover {
-    background: #0a58ca;
+    background: rgba(10, 88, 202, 0.8);
     transform: scale(1.1);
 }
 
