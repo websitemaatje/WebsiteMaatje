@@ -453,9 +453,9 @@ function initializeProjectBuilder() {
     
     function updateNavigation() {
         const prevBtn = document.getElementById('prevStep');
-        const stepNumber = parseInt(currentStep.replace(/[^0-9]/g, '')) || 0;
         
-        if (stepNumber <= 1 || currentStep === 'finalStep') {
+        // Enable prev button for all steps except step0 and finalStep
+        if (currentStep === 'step0' || currentStep === 'finalStep') {
             prevBtn.disabled = true;
         } else {
             prevBtn.disabled = false;
@@ -787,52 +787,6 @@ function initializeProjectBuilder() {
         goToPreviousStep();
     });
     
-    // Restart builder button
-    document.getElementById('restartBuilder').addEventListener('click', function() {
-        // Reset all selections
-        currentStep = 'step0';
-        selectedService = '';
-        selections = {
-            // Web development
-            packageType: '',
-            domainHosting: '',
-            services: [],
-            modules: [],
-            // Cloud services
-            cloudEnvironment: '',
-            currentProvider: '',
-            challenges: [],
-            migrationPlans: '',
-            migrationGoals: [],
-            technologies: []
-        };
-        
-        // Clear all active states
-        document.querySelectorAll('.option-card').forEach(card => {
-            card.classList.remove('active');
-        });
-        
-        // Go back to step 0 (service selection)
-        showStep('step0');
-        
-        // Reset continue buttons
-        const continueButtons = [
-            'continueStep2b-webdev',
-            'continueStep4-webdev',
-            'continueStep3a-cloud',
-            'continueStep3b-cloud',
-            'continueStep5-cloud'
-        ];
-        
-        continueButtons.forEach(buttonId => {
-            const button = document.getElementById(buttonId);
-            if (button) {
-                button.disabled = true;
-            }
-        });
-        
-        console.log('Builder restarted - back to service selection');
-    });
     
     function generateSummary() {
         // Legacy function for compatibility - use generateWebDevSummary instead
