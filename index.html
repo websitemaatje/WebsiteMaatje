@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="nl" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFlow Solutions - Web Development & Cloud Services</title>
+    
+    <!-- Bootstrap CSS with Replit dark theme -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="fas fa-code me-2"></i>TechFlow Solutions
+            </a>
+            
+            <!-- Mobile menu toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navigation menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Diensten</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Over Ons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-4">
+                            Moderne Web Development & Cloud Solutions
+                        </h1>
+                        <p class="lead mb-4">
+                            Wij transformeren uw digitale visie tot realiteit met cutting-edge webontwikkeling 
+                            en betrouwbare cloud services. Van concept tot implementatie.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="#services" class="btn btn-primary btn-lg smooth-scroll">
+                                <i class="fas fa-rocket me-2"></i>Ontdek Onze Diensten
+                            </a>
+                            <a href="#contact" class="btn btn-outline-secondary btn-lg smooth-scroll">
+                                <i class="fas fa-comments me-2"></i>Start Gesprek
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-graphic text-center">
+                        <i class="fas fa-laptop-code hero-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Onze Diensten</h2>
+                    <p class="lead text-muted">
+                        Professionele oplossingen voor al uw digitale behoeften
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Web Development Service -->
+                <div class="col-lg-6">
+                    <div class="service-card h-100">
+                        <div class="card-body p-4">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="h4 mb-3">Web Development</h3>
+                            <p class="text-muted mb-4">
+                                Van responsive websites tot complexe webapplicaties. Wij bouwen moderne, 
+                                snelle en gebruiksvriendelijke digitale ervaringen.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    Responsive Design
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    Modern Frameworks (React, Vue, Angular)
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    E-commerce Solutions
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    Progressive Web Apps
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Services -->
+                <div class="col-lg-6">
+                    <div class="service-card h-100">
+                        <div class="card-body p-4">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3 class="h4 mb-3">Cloud Services</h3>
+                            <p class="text-muted mb-4">
+                                Schaalbare en betrouwbare cloud infrastructuur voor uw bedrijf. 
+                                Van migratie tot beheer, wij zorgen voor uw cloud omgeving.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    AWS/Azure/Google Cloud
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    DevOps & CI/CD
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    Container Orchestration
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    24/7 Monitoring & Support
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-dark">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-6 fw-bold mb-4">Waarom Kiezen Voor TechFlow?</h2>
+                    <p class="lead mb-4">
+                        Met meer dan 10 jaar ervaring in webontwikkeling en cloud technologieën, 
+                        leveren wij innovatieve oplossingen die uw bedrijf vooruit helpen.
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="stat-item text-center">
+                                <h3 class="display-6 fw-bold text-primary">150+</h3>
+                                <p class="text-muted">Projecten Voltooid</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-item text-center">
+                                <h3 class="display-6 fw-bold text-primary">10+</h3>
+                                <p class="text-muted">Jaar Ervaring</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-item text-center">
+                                <h3 class="display-6 fw-bold text-primary">99%</h3>
+                                <p class="text-muted">Client Tevredenheid</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-item text-center">
+                                <h3 class="display-6 fw-bold text-primary">24/7</h3>
+                                <p class="text-muted">Support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-graphic text-center">
+                        <i class="fas fa-users-cog about-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Neem Contact Op</h2>
+                    <p class="lead text-muted">
+                        Klaar om uw project te starten? Laten we praten over uw mogelijkheden.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form id="contactForm" class="contact-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">Voornaam *</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                                <div class="invalid-feedback">
+                                    Voornaam is verplicht.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Achternaam *</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                                <div class="invalid-feedback">
+                                    Achternaam is verplicht.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">E-mailadres *</label>
+                                <input type="email" class="form-control" id="email" required>
+                                <div class="invalid-feedback">
+                                    Een geldig e-mailadres is verplicht.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Telefoonnummer</label>
+                                <input type="tel" class="form-control" id="phone">
+                            </div>
+                            <div class="col-12">
+                                <label for="company" class="form-label">Bedrijfsnaam</label>
+                                <input type="text" class="form-control" id="company">
+                            </div>
+                            <div class="col-12">
+                                <label for="service" class="form-label">Gewenste Service *</label>
+                                <select class="form-select" id="service" required>
+                                    <option value="">Selecteer een service...</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="cloud-services">Cloud Services</option>
+                                    <option value="consultation">Consultatie</option>
+                                    <option value="other">Anders</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Selecteer alstublieft een service.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Bericht *</label>
+                                <textarea class="form-control" id="message" rows="5" 
+                                         placeholder="Vertel ons over uw project..." required></textarea>
+                                <div class="invalid-feedback">
+                                    Een bericht is verplicht.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="privacy" required>
+                                    <label class="form-check-label" for="privacy">
+                                        Ik ga akkoord met het privacybeleid *
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        U moet akkoord gaan met het privacybeleid.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Verstuur Bericht
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Success message (hidden by default) -->
+                    <div id="successMessage" class="alert alert-success mt-4 d-none">
+                        <i class="fas fa-check-circle me-2"></i>
+                        Bedankt voor uw bericht! Wij nemen binnen 24 uur contact met u op.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">
+                        &copy; 2024 TechFlow Solutions. Alle rechten voorbehouden.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-muted me-3">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-muted me-3">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-muted">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
