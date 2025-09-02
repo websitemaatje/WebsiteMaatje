@@ -464,11 +464,6 @@ function initializeProjectBuilder() {
     
     // Handle option cards
     projectBuilder.addEventListener('click', function(e) {
-        // Prevent card selection when clicking on info icon
-        if (e.target.closest('.card-info-icon')) {
-            e.stopPropagation();
-            return;
-        }
         
         const optionCard = e.target.closest('.option-card');
         if (!optionCard) return;
@@ -486,64 +481,7 @@ function initializeProjectBuilder() {
         }
     });
     
-    // Hover tooltip functions
-    let currentTooltip = null;
-    
-    // Add hover listeners to all info icons
-    document.querySelectorAll('.card-info-icon').forEach(icon => {
-        icon.addEventListener('mouseenter', function(e) {
-            showTooltip(this);
-        });
-        
-        icon.addEventListener('mouseleave', function(e) {
-            hideTooltip();
-        });
-    });
-    
-    function showTooltip(infoIcon) {
-        // Remove existing tooltip
-        hideTooltip();
-        
-        const tooltipText = infoIcon.dataset.tooltip;
-        if (!tooltipText) return;
-        
-        // Create tooltip
-        const tooltip = document.createElement('div');
-        tooltip.className = 'simple-tooltip';
-        tooltip.innerHTML = tooltipText;
-        
-        // Add to body
-        document.body.appendChild(tooltip);
-        
-        // Position tooltip
-        const iconRect = infoIcon.getBoundingClientRect();
-        const tooltipRect = tooltip.getBoundingClientRect();
-        
-        // Position above the icon, centered horizontally
-        let top = iconRect.top - tooltipRect.height - 10;
-        let left = iconRect.left + (iconRect.width / 2) - (tooltipRect.width / 2);
-        
-        // Ensure tooltip stays within viewport
-        if (left < 10) left = 10;
-        if (left + tooltipRect.width > window.innerWidth - 10) {
-            left = window.innerWidth - tooltipRect.width - 10;
-        }
-        if (top < 10) {
-            top = iconRect.bottom + 10; // Show below if no space above
-        }
-        
-        tooltip.style.top = top + 'px';
-        tooltip.style.left = left + 'px';
-        
-        currentTooltip = tooltip;
-    }
-    
-    function hideTooltip() {
-        if (currentTooltip) {
-            currentTooltip.remove();
-            currentTooltip = null;
-        }
-    }
+    // Using native browser tooltips instead of custom hover tooltips
     
     function handleSingleSelect(card, value, nextStep) {
         // Remove active class from siblings
