@@ -13,7 +13,13 @@ gunicorn = ">=23.0.0"
 psycopg2-binary = ">=2.9.10"
 
 [tool.poetry.dev-dependencies]
-# Hier kun je ontwikkelingsafhankelijkheden toevoegen zoals pytest, black, enz.
+# Voeg hier je ontwikkelingsafhankelijkheden toe zoals pytest, black, enz.
+
+[tool.poetry.packages]
+# Dit geeft aan dat de rootmap van je project moet worden verpakt
+# als onderdeel van je project. Je kunt het pad naar een specifieke map opgeven
+# als je dat wilt.
+include = ["*"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
