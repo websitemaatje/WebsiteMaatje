@@ -486,7 +486,7 @@ function initializeProjectBuilder() {
     
     // Add hover listeners to all info icons
     document.querySelectorAll('.info-icon').forEach(icon => {
-        const card = icon.closest('[title]');
+        const card = icon.closest('button[title]');
         if (card) {
             const tooltipText = card.getAttribute('title');
             icon.addEventListener('mouseenter', function(e) {
