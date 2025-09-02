@@ -610,7 +610,24 @@ footer {
     }
 }
 
-/* Info icon styles removed - using hover tooltips instead */
+/* Simple blue info icon */
+.info-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    background: #0d6efd;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: help;
+    z-index: 5;
+}
 
 /* Simple Tooltip Styles */
 .simple-tooltip {
