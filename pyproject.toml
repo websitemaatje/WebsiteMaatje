@@ -10,7 +10,3 @@ dependencies = [
     "gunicorn>=23.0.0",
     "psycopg2-binary>=2.9.10",
 ]
-# Make sure the 'packages' section is added
-packages = [
-    { include = "repl_nix_workspace" }  # Adjust this to your actual project structure
-]
