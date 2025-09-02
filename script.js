@@ -464,6 +464,12 @@ function initializeProjectBuilder() {
     
     // Handle option cards
     projectBuilder.addEventListener('click', function(e) {
+        // Prevent card selection when clicking on info icon
+        if (e.target.closest('.card-info-icon')) {
+            e.stopPropagation();
+            return;
+        }
+        
         const optionCard = e.target.closest('.option-card');
         if (!optionCard) return;
         
