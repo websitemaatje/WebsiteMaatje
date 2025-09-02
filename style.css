@@ -637,9 +637,7 @@ footer {
 
 /* Simple Tooltip Styles */
 .simple-tooltip {
-    position: absolute;
-    bottom: 120%;
-    right: -50%;
+    position: fixed;
     background: var(--bs-dark);
     color: var(--bs-white);
     padding: 0.75rem 1rem;
@@ -648,6 +646,7 @@ footer {
     line-height: 1.4;
     white-space: normal;
     max-width: 280px;
+    min-height: auto;
     width: max-content;
     z-index: 99999;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -655,14 +654,15 @@ footer {
     animation: tooltipFadeIn 0.2s ease-in-out;
     text-align: left;
     pointer-events: none;
+    display: block;
 }
 
 .simple-tooltip::after {
     content: '';
     position: absolute;
     top: 100%;
-    right: 50%;
-    transform: translateX(50%);
+    left: 50%;
+    transform: translateX(-50%);
     border: 6px solid transparent;
     border-top-color: var(--bs-dark);
 }

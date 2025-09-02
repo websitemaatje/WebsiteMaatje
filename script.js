@@ -464,12 +464,9 @@ function initializeProjectBuilder() {
     
     // Handle option cards
     projectBuilder.addEventListener('click', function(e) {
-        // Handle info icon clicks
+        // Prevent card selection when clicking on info icon
         if (e.target.closest('.card-info-icon')) {
             e.stopPropagation();
-            const infoIcon = e.target.closest('.card-info-icon');
-            const tooltipText = infoIcon.dataset.tooltip;
-            showTooltipModal(tooltipText);
             return;
         }
         
@@ -489,43 +486,63 @@ function initializeProjectBuilder() {
         }
     });
     
-    // Simple tooltip functions
-    function showTooltipModal(text) {
-        // Remove existing tooltips
-        document.querySelectorAll('.simple-tooltip').forEach(t => t.remove());
+    // Hover tooltip functions
+    let currentTooltip = null;
+    
+    // Add hover listeners to all info icons
+    document.querySelectorAll('.card-info-icon').forEach(icon => {
+        icon.addEventListener('mouseenter', function(e) {
+            showTooltip(this);
+        });
         
-        // Create simple tooltip
+        icon.addEventListener('mouseleave', function(e) {
+            hideTooltip();
+        });
+    });
+    
+    function showTooltip(infoIcon) {
+        // Remove existing tooltip
+        hideTooltip();
+        
+        const tooltipText = infoIcon.dataset.tooltip;
+        if (!tooltipText) return;
+        
+        // Create tooltip
         const tooltip = document.createElement('div');
         tooltip.className = 'simple-tooltip';
-        tooltip.textContent = text;
+        tooltip.innerHTML = tooltipText;
         
-        // Add to body (so it's not constrained by parent overflow)
+        // Add to body
         document.body.appendChild(tooltip);
         
-        // Position relative to the clicked icon
-        const infoIcon = event.target.closest('.card-info-icon');
+        // Position tooltip
         const iconRect = infoIcon.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
         
-        // Position tooltip above and slightly to the right of the icon
-        tooltip.style.position = 'fixed';
-        tooltip.style.top = (iconRect.top - tooltip.offsetHeight - 10) + 'px';
-        tooltip.style.left = (iconRect.left - tooltip.offsetWidth + iconRect.width) + 'px';
+        // Position above the icon, centered horizontally
+        let top = iconRect.top - tooltipRect.height - 10;
+        let left = iconRect.left + (iconRect.width / 2) - (tooltipRect.width / 2);
         
-        // Remove tooltip after 4 seconds or on click elsewhere
-        setTimeout(() => {
-            if (tooltip.parentNode) {
-                tooltip.remove();
-            }
-        }, 4000);
+        // Ensure tooltip stays within viewport
+        if (left < 10) left = 10;
+        if (left + tooltipRect.width > window.innerWidth - 10) {
+            left = window.innerWidth - tooltipRect.width - 10;
+        }
+        if (top < 10) {
+            top = iconRect.bottom + 10; // Show below if no space above
+        }
         
-        // Close on click anywhere
-        const closeTooltip = function() {
-            tooltip.remove();
-            document.removeEventListener('click', closeTooltip);
-        };
-        setTimeout(() => {
-            document.addEventListener('click', closeTooltip);
-        }, 100);
+        tooltip.style.top = top + 'px';
+        tooltip.style.left = left + 'px';
+        
+        currentTooltip = tooltip;
+    }
+    
+    function hideTooltip() {
+        if (currentTooltip) {
+            currentTooltip.remove();
+            currentTooltip = null;
+        }
     }
     
     function handleSingleSelect(card, value, nextStep) {
