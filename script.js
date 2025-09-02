@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeFormValidation();
     initializeScrollAnimations();
     initializeParallaxEffects();
+    initializeProjectBuilder();
 });
 
 /**
@@ -403,6 +404,285 @@ window.addEventListener('load', function() {
     // Initialize any heavy libraries here
     console.log('TechFlow Solutions website loaded successfully!');
 });
+
+/**
+ * Project Builder functionality
+ */
+function initializeProjectBuilder() {
+    const projectBuilder = document.getElementById('projectBuilder');
+    if (!projectBuilder) return;
+    
+    // State management
+    let currentStep = 'step1';
+    let selections = {
+        packageType: '',
+        domainHosting: '',
+        services: [],
+        modules: []
+    };
+    
+    // Step navigation
+    function showStep(stepId) {
+        // Hide all steps
+        document.querySelectorAll('.builder-step').forEach(step => {
+            step.classList.remove('active');
+        });
+        
+        // Show current step
+        document.getElementById(stepId).classList.add('active');
+        currentStep = stepId;
+        
+        // Update navigation buttons
+        updateNavigation();
+        
+        // Scroll to project builder
+        document.getElementById('project-builder').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }
+    
+    function updateNavigation() {
+        const prevBtn = document.getElementById('prevStep');
+        const stepNumber = parseInt(currentStep.replace(/[^0-9]/g, '')) || 0;
+        
+        if (stepNumber <= 1 || currentStep === 'finalStep') {
+            prevBtn.disabled = true;
+        } else {
+            prevBtn.disabled = false;
+        }
+    }
+    
+    // Handle option cards
+    projectBuilder.addEventListener('click', function(e) {
+        const optionCard = e.target.closest('.option-card');
+        if (!optionCard) return;
+        
+        const isMultiSelect = optionCard.classList.contains('multi');
+        const value = optionCard.dataset.value;
+        const nextStep = optionCard.dataset.next;
+        
+        if (isMultiSelect) {
+            // Handle multi-select options
+            handleMultiSelect(optionCard, value);
+        } else {
+            // Handle single select options
+            handleSingleSelect(optionCard, value, nextStep);
+        }
+    });
+    
+    function handleSingleSelect(card, value, nextStep) {
+        // Remove active class from siblings
+        card.parentNode.querySelectorAll('.option-card').forEach(sibling => {
+            sibling.classList.remove('active');
+        });
+        
+        // Add active class to selected card
+        card.classList.add('active');
+        
+        // Store selection
+        if (currentStep === 'step1') {
+            selections.packageType = value;
+        } else if (currentStep === 'step2a') {
+            selections.domainHosting = value;
+        }
+        
+        // Move to next step after delay
+        setTimeout(() => {
+            if (nextStep) {
+                showStep(nextStep);
+            }
+        }, 500);
+    }
+    
+    function handleMultiSelect(card, value) {
+        card.classList.toggle('active');
+        
+        if (currentStep === 'step2b') {
+            if (card.classList.contains('active')) {
+                if (!selections.services.includes(value)) {
+                    selections.services.push(value);
+                }
+            } else {
+                selections.services = selections.services.filter(s => s !== value);
+            }
+            
+            // Enable/disable continue button
+            const continueBtn = document.getElementById('continueStep2b');
+            continueBtn.disabled = selections.services.length === 0;
+            
+        } else if (currentStep === 'step4') {
+            // Handle "none" selection
+            if (value === 'none') {
+                if (card.classList.contains('active')) {
+                    // Deselect all other modules
+                    card.parentNode.querySelectorAll('.option-card').forEach(sibling => {
+                        if (sibling !== card) {
+                            sibling.classList.remove('active');
+                        }
+                    });
+                    selections.modules = ['none'];
+                } else {
+                    selections.modules = [];
+                }
+            } else {
+                // Deselect "none" if other module is selected
+                const noneCard = card.parentNode.querySelector('[data-value="none"]');
+                if (noneCard && noneCard.classList.contains('active')) {
+                    noneCard.classList.remove('active');
+                    selections.modules = selections.modules.filter(m => m !== 'none');
+                }
+                
+                if (card.classList.contains('active')) {
+                    if (!selections.modules.includes(value)) {
+                        selections.modules.push(value);
+                    }
+                } else {
+                    selections.modules = selections.modules.filter(m => m !== value);
+                }
+            }
+        }
+    }
+    
+    // Continue buttons
+    document.getElementById('continueStep2b').addEventListener('click', function() {
+        showStep('step4');
+    });
+    
+    document.getElementById('continueStep4').addEventListener('click', function() {
+        generateSummary();
+        showStep('step5');
+    });
+    
+    // Final buttons
+    document.getElementById('startProject').addEventListener('click', function() {
+        showFinalMessage('success');
+    });
+    
+    document.getElementById('saveForLater').addEventListener('click', function() {
+        showFinalMessage('saved');
+    });
+    
+    document.getElementById('restartBuilder').addEventListener('click', function() {
+        restartBuilder();
+    });
+    
+    // Previous button
+    document.getElementById('prevStep').addEventListener('click', function() {
+        goToPreviousStep();
+    });
+    
+    function generateSummary() {
+        const summaryContent = document.getElementById('summaryContent');
+        let html = '<div class="summary-items">';
+        
+        // Package type
+        if (selections.packageType === 'complete-package') {
+            html += '<div class="summary-item"><i class="fas fa-box-open text-primary"></i> <strong>Compleet pakket</strong></div>';
+            
+            if (selections.domainHosting === 'domain-hosting-yes') {
+                html += '<div class="summary-item"><i class="fas fa-check-circle text-success"></i> Alleen design (domein + hosting aanwezig)</div>';
+            } else {
+                html += '<div class="summary-item"><i class="fas fa-tools text-info"></i> Alles regelen (domein + hosting + design)</div>';
+            }
+        } else {
+            html += '<div class="summary-item"><i class="fas fa-puzzle-piece text-primary"></i> <strong>Losse diensten:</strong></div>';
+            
+            const serviceLabels = {
+                'webdesign': 'Webdesign',
+                'hosting': 'Hosting',
+                'domain': 'Domeinregistratie'
+            };
+            
+            selections.services.forEach(service => {
+                html += `<div class="summary-item"><i class="fas fa-check text-success"></i> ${serviceLabels[service]}</div>`;
+            });
+        }
+        
+        // Modules
+        if (selections.modules.length > 0 && !selections.modules.includes('none')) {
+            html += '<div class="summary-item mt-3"><strong>Extra modules:</strong></div>';
+            
+            const moduleLabels = {
+                'seo': 'SEO-optimalisatie',
+                'maintenance': 'Onderhoud & updates',
+                'webshop': 'Webshop',
+                'cms-training': 'CMS-training',
+                'branding': 'Branding / logo / huisstijl'
+            };
+            
+            selections.modules.forEach(module => {
+                if (moduleLabels[module]) {
+                    html += `<div class="summary-item"><i class="fas fa-plus text-info"></i> ${moduleLabels[module]}</div>`;
+                }
+            });
+        } else {
+            html += '<div class="summary-item mt-3"><i class="fas fa-times text-muted"></i> Geen extra modules</div>';
+        }
+        
+        html += '</div>';
+        summaryContent.innerHTML = html;
+    }
+    
+    function showFinalMessage(type) {
+        const finalMessage = document.getElementById('finalMessage');
+        
+        if (type === 'success') {
+            finalMessage.innerHTML = `
+                <div class="alert alert-success">
+                    <i class="fas fa-rocket fa-2x mb-3"></i>
+                    <h4>Fantastisch!</h4>
+                    <p>Wij gaan direct aan de slag met uw project. Binnen 24 uur neemt een van onze specialisten contact met u op om de details door te spreken.</p>
+                </div>
+            `;
+        } else {
+            finalMessage.innerHTML = `
+                <div class="alert alert-info">
+                    <i class="fas fa-bookmark fa-2x mb-3"></i>
+                    <h4>Opgeslagen!</h4>
+                    <p>We hebben uw keuzes bewaard. U kunt altijd terugkomen om uw project verder uit te werken. Geen zorgen, we versturen geen spam!</p>
+                </div>
+            `;
+        }
+        
+        showStep('finalStep');
+    }
+    
+    function restartBuilder() {
+        // Reset selections
+        selections = {
+            packageType: '',
+            domainHosting: '',
+            services: [],
+            modules: []
+        };
+        
+        // Reset all cards
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.classList.remove('active');
+        });
+        
+        // Reset continue buttons
+        document.getElementById('continueStep2b').disabled = true;
+        
+        // Go to first step
+        showStep('step1');
+    }
+    
+    function goToPreviousStep() {
+        if (currentStep === 'step2a' || currentStep === 'step2b') {
+            showStep('step1');
+        } else if (currentStep === 'step4') {
+            if (selections.packageType === 'complete-package') {
+                showStep('step2a');
+            } else {
+                showStep('step2b');
+            }
+        } else if (currentStep === 'step5') {
+            showStep('step4');
+        }
+    }
+}
 
 /**
  * Error handling for missing elements
